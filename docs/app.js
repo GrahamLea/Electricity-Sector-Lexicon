@@ -155,19 +155,22 @@ function start() {
                 }
                 this.definitions.push(...newDefinitions)
 
-            const importPromises = []
-            let directory = file.substring(0, file.lastIndexOf("/"));
-            for (let importLocation of data.include || []) {
-                let importFile
-                if (importLocation.endsWith("/")) {
-                    importFile = `${directory}/${importLocation}index.json5`
-                } else {
-                    importFile = `${directory}/${importLocation}.json5`
+                const importPromises = []
+                let directory = file.substring(0, file.lastIndexOf("/"));
+                for (let importLocation of data.include || []) {
+                    let importFile
+                    if (importLocation.endsWith("/")) {
+                        importFile = `${directory}/${importLocation}index.json5`
+                    } else {
+                        importFile = `${directory}/${importLocation}.json5`
+                    }
+                    importPromises.push(this.loadData(importFile, deepCopy(context)))
                 }
-                importPromises.push(this.loadData(importFile, deepCopy(context)))
-            }
-            await Promise.allSettled(importPromises)
-        },
+                await Promise.all(importPromises).catch(reason => {
+                    console.log("Error while loading data: ", reason)
+                    alert("Error while loading data: " + reason)
+                })
+            },
 
             textSections(text) {
                 return text.split(LINK_REGEX)
