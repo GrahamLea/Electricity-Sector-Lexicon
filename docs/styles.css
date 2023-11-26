@@ -74,3 +74,10 @@
 .links a:last-child {
     border-right: none;
 }
+
+.link .bi-exclamation-diamond-fill {
+    font-size: 70%;
+    background-color: #bb0000;
+    padding: 0.2em;
+    border-radius: 0.2em;
+}

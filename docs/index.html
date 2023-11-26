@@ -20,6 +20,7 @@
           crossorigin="anonymous">
 
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 
 </head>
 
@@ -34,26 +35,19 @@
         <div class="container-fluid">
             <a class="navbar-brand mb-0 h1">Electricity Sector Lexicon</a>
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+                <!-- TODO: Fix unnecessary wrapping on small width window -->
                 <li class="nav-item col-6 col-lg-auto">
                     <a class="nav-link py-2 px-0 px-lg-2"
                        href="https://github.com/GrahamLea/electricity-sector-lexicon"
                        title="Contribute on GitHub"
                        target="_blank"
                        rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             width="24"
-                             height="24"
-                             class="navbar-nav-svg"
-                             viewBox="0 0 512 499.36"
-                             role="img">
-                            <path fill="currentColor"
-                                  fill-rule="evenodd"
-                                  d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z"></path>
-                        </svg>
-                        <small class="d-lg-none ms-2">GitHub</small>
+                        <i class="bi-github" style="font-size: 150%"></i>
                     </a>
                 </li>
             </ul>
+            <!-- TODO: Filtering by region -->
+            <!-- TODO: Implement search -->
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
@@ -62,9 +56,32 @@
 
     <div id="topLevelContainer" class="container">
 
-        <header id="intro" class="lead text-center">
+        <header v-if="!selectedTerm" id="intro" class="lead text-center">
             A dictionary of electricity sector terminology for industry newcomers.
         </header>
+
+        <div class="alert text-center" v-if="definitions.length === 0" role="alert" style="opacity: 50%;">
+                Loading definitions...
+        </div>
+
+        <template v-if="selectedTerm">
+            <div class="alert text-center"
+                 :class="selectedDefinition ? 'alert-light' : 'alert-warning'"
+                 role="alert">
+                <span v-if="selectedDefinition">
+                    Showing only '{{selectedDefinition.term}}'
+                </span>
+                <span v-else>
+                    <i class="bi bi-exclamation-triangle-fill" style="color: gold;"></i>
+                    There is no entry for '{{selectedTerm}}'.
+                </span>
+                <button type="button"
+                        class="btn btn-dark btn-sm"
+                        style="margin-left: 2em"
+                        @click="clearSelectedTerm"
+                >Show All</button>
+            </div>
+        </template>
 
         <template v-for="[category, defs] in definitionsByCategory">
 
@@ -73,7 +90,7 @@
                 <h1>{{category}}</h1>
             </header>
 
-            <section v-for="def in defs" class="definition card">
+            <section v-for="def in defs" class="definition card" :id="def['id']">
                 <header class="card-header">
                     <section class="card-title">
                         <h2 class="term">
@@ -87,22 +104,26 @@
                             <span v-for="syn in def.synonyms" class="synonym">{{syn}}</span>
                         </p>
                         <p class="badges">
-                    <span v-if="def.jurisdiction" class="jurisdiction badge bg-warning text-dark">
-                        Jurisdiction: {{def.jurisdiction}}
-                    </span>
+                            <span v-if="def.jurisdiction" class="jurisdiction badge bg-warning text-dark">
+                                Jurisdiction: {{def.jurisdiction}}
+                            </span>
                             <span v-for="tag in def.tags || []" class="tag badge bg-info text-dark">{{tag}}</span>
                         </p>
                     </section>
                 </header>
 
                 <div class="card-body">
-                    <!-- TODO: Implement links in the definition -->
                     <p class="definition-text lead">
-                        {{def.definition.summary}}
+                        <template v-for="part in textSections(def.definition.summary)">
+                            <span v-if="isLink(part)" v-html="linkTagFor(part)" class="link"></span>
+                            <template v-else>{{part}}</template>
+                        </template>
                     </p>
-                    <!-- TODO: Hide / reveal ! -->
-                    <p v-if="def.definition.more" class="definition-more">
-                        {{def.definition.more}}
+                    <p class="definition-more">
+                        <template v-for="part in textSections(def.definition.more)">
+                            <span v-if="isLink(part)" v-html="linkTagFor(part)" class="link"></span>
+                            <template v-else>{{part}}</template>
+                        </template>
                     </p>
                     <section v-if="def.links" class="links">
                         <template v-for="link in def.links">
