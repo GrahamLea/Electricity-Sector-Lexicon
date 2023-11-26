@@ -70,37 +70,38 @@ createApp({
             }
             let text = await response.text();
             const data = JSON5.parse(text)
-            if (data["category"]) {
+            if (data.category) {
                 if (context.category) {
-                    context.category = context.category + " / " + data["category"]
+                    context.category = context.category + " / " + data.category
                 } else {
-                    context.category = data["category"]
+                    context.category = data.category
                 }
             }
-            if (data["jurisdiction"]) {
-                context.jurisdiction = data["jurisdiction"]
+            if (data.jurisdiction) {
+                context.jurisdiction = data.jurisdiction
             }
-            if (data["tags"]) {
-                context.tags = (context.tags || []).concat(data["tags"])
+            if (data.tags) {
+                context.tags = (context.tags || []).concat(data.tags)
             }
 
             let newDefinitions = []
-            for (let definition of data["definitions"] || []) {
+            for (let definition of data.definitions || []) {
                 if (!context.category) {
-                    alert(`Data error: Context has no category while processing: ${definition["term"]}`)
+                    alert(`Data error: Context has no category while processing: ${definition.term}`)
                     continue
                 }
-                definition["id"] = this.termId(definition["term"])
-                definition["category"] = context.category
-                definition["jurisdiction"] = context.jurisdiction
-                definition["tags"] = (definition["tags"] || []).concat(context.tags)
+                definition.id = this.termId(definition.term)
+                definition.category = context.category
+                definition.jurisdiction = context.jurisdiction
+                definition.tags = (definition.tags || []).concat(context.tags)
+
                 newDefinitions.push(definition)
             }
             this.definitions.push(...newDefinitions)
 
             const importPromises = []
             let directory = file.substring(0, file.lastIndexOf("/"));
-            for (let importLocation of data["include"] || []) {
+            for (let importLocation of data.include || []) {
                 let importFile
                 if (importLocation.endsWith("/")) {
                     importFile = `${directory}/${importLocation}index.json5`
