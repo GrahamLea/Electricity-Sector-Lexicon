@@ -1,6 +1,6 @@
 const { createApp } = Vue
 
-const DATA_ROOT = "../data/index.json5"
+const DATA_ROOT = "data/index.json5"
 
 function deepCopy(object) {
     return JSON.parse(JSON.stringify(object))
