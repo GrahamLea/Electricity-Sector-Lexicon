@@ -1,0 +1,76 @@
+.navbar form {
+    margin-left: 1em;
+}
+
+#topLevelContainer {
+    margin-top: 1em;
+}
+
+#intro {
+    margin: 2em 0;
+}
+
+.category-header {
+    margin-top: 5em;
+}
+
+#intro + .category-header {
+    margin-top: 0;
+}
+
+.category-label {
+    opacity: 50%;
+}
+
+/*.card header {*/
+/*    background: blue;*/
+/*}*/
+
+.card h3 {
+    font-size: 100%;
+    opacity: 60%;
+    text-transform: uppercase;
+}
+
+.card {
+    margin: 2em 0;
+}
+
+.main-acronym:before {
+    content: "("
+}
+
+.main-acronym:after {
+    content: ")"
+}
+
+.also-known-as {
+    font-style: italic;
+    opacity: 70%;
+}
+
+.also-known-as .acronym:after ,
+.also-known-as .synonym:after {
+    content: ", ";
+}
+
+.also-known-as :last-child:after {
+    content: ""
+}
+
+.badges .badge {
+    margin-right: 1em;
+}
+
+.links {
+    font-size: smaller;
+}
+
+.links a {
+    padding: 0 0.5em;
+    border-right: 1px solid #666;
+}
+
+.links a:last-child {
+    border-right: none;
+}

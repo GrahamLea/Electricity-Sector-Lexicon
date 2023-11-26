@@ -1,0 +1,66 @@
+{
+  category: ["Organisations"],
+  definitions: [
+    {
+      term: "Australian Energy Market Commission",
+      acronyms: [ "AEMC" ],
+      definition: {
+        summary: "TODO",
+        more: "TODO"
+      },
+      links: [
+        { title: "", href: "" }
+      ]
+    },
+    {
+      term: "Australian Energy Market Operator",
+      acronyms: [ "AEMO" ],
+      definition: {
+        summary:
+        "The highest-level operator of most of Australia's electricity networks \
+        (including all those in the [National Energy Market]), Victoria's gas network, and energy-trading markets.",
+        more:
+        "AEMO are involved in real-time operation of the network, and help to manage planned and unplanned outages and emergencies. \
+        They also forecast and plan for the long-term management of the networks. \
+        They are owned by Australian federal and state governments as well as energy industry members.",
+      },
+      links: [
+        { title: "AEMO", href: "https://aemo.com.au/" },
+        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Operator" }
+      ],
+    },
+    {
+      term: "Australian Energy Regulator",
+      acronyms: [ "AER" ],
+      definition: {
+        summary: "TODO",
+        more: "TODO"
+      },
+      links: [
+        { title: "", href: "" },
+      ],
+    },
+    {
+      term: "Australian Renewable Energy Agency",
+      acronyms: [ "ARENA" ],
+      definition: {
+        summary: "TODO",
+        more: "TODO"
+      },
+      links: [
+        { title: "", href: "" },
+      ],
+    },
+    {
+      term: "Energy Security Board",
+      acronyms: [ "ESB" ],
+      definition: {
+        summary: "TODO",
+        more: "TODO"
+      },
+      links: [
+        { title: "", href: "" },
+      ],
+    }
+  ]
+}
