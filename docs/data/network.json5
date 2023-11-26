@@ -1,6 +1,6 @@
 {
   category: "Electricity Network",
-  definitions: [
+  entries: [
     {
       term: "Distributed Energy Resources",
       acronyms: [ "DER" ],

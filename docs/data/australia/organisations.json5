@@ -1,6 +1,6 @@
 {
   category: ["Organisations"],
-  definitions: [
+  entries: [
     {
       term: "Australian Energy Market Commission",
       acronyms: [ "AEMC" ],

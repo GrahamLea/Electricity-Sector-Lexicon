@@ -12,7 +12,7 @@ function start() {
 
         data() {
             return {
-                definitions: [],
+                entries: [],
                 selectedTerm: null,
                 searchText: "",
                 searchTrie: new TrieNode()
@@ -22,16 +22,16 @@ function start() {
         computed: {
             categories() {
                 let cats = new Set()
-                for (let def of this.definitions) {
-                    if (def.category) {
-                        cats.add(def.category)
+                for (let entry of this.entries) {
+                    if (entry.category) {
+                        cats.add(entry.category)
                     }
                 }
                 return cats
             },
 
-            selectedDefinition() {
-                return this.definitionsById.get(this.selectedTerm)
+            selectedEntry() {
+                return this.entriesById.get(this.selectedTerm)
             },
 
             searchTerms() {
@@ -42,7 +42,7 @@ function start() {
                 return this.searchTerms.length !== 0
             },
 
-            searchedDefinitions() {
+            searchedEntries() {
                 if (!this.hasSearchTerms) return []
 
                 // noinspection JSPotentiallyInvalidTargetOfIndexedPropertyAccess
@@ -66,36 +66,36 @@ function start() {
                                     : idA > idB ? 1
                                         : 0
                     });
-                return sortedMatchScores.map(([id, _]) => this.definitionsById.get(id))
+                return sortedMatchScores.map(([id, _]) => this.entriesById.get(id))
             },
 
-            definitionsById() {
+            entriesById() {
                 let map = new Map()
-                for (let d of this.definitions) {
+                for (let d of this.entries) {
                     map.set(d.id, d)
                 }
                 return map
             },
 
-            definitionsSorted() {
+            entriesSorted() {
                 if (this.selectedTerm) {
-                    return [this.selectedDefinition]
+                    return [this.selectedEntry]
                 }
 
                 if (this.hasSearchTerms) {
-                    return this.searchedDefinitions
+                    return this.searchedEntries
                 }
 
                 const map = new Map()
                 for (const c of this.categories) {
                     map.set(c, [])
                 }
-                for (const d of this.definitions) {
+                for (const d of this.entries) {
                     map.get(d.category).push(d)
                 }
                 const result = []
-                for (const [_, defs] of map.entries()) {
-                    result.push(...defs)
+                for (const [_, entries] of map.entries()) {
+                    result.push(...entries)
                 }
                 return result
             }
@@ -150,20 +150,20 @@ function start() {
                     context.tags = (context.tags || []).concat(data.tags)
                 }
 
-                let newDefinitions = []
-                for (let definition of data.definitions || []) {
+                let newEntries = []
+                for (let entry of data.entries || []) {
                     if (!context.category) {
-                        alert(`Data error: Context has no category while processing: ${definition.term}`)
+                        alert(`Data error: Context has no category while processing: ${entry.term}`)
                         continue
                     }
-                    definition.id = this.termId(definition.term)
-                    definition.category = context.category
-                    definition.region = context.region
-                    definition.tags = (definition.tags || []).concat(context.tags || [])
-                    definition.searchTokenScores = searchTokenScoresForDefinition(definition)
-                    newDefinitions.push(definition)
+                    entry.id = this.termId(entry.term)
+                    entry.category = context.category
+                    entry.region = context.region
+                    entry.tags = (entry.tags || []).concat(context.tags || [])
+                    entry.searchTokenScores = searchTokenScoresForEntry(entry)
+                    newEntries.push(entry)
                 }
-                this.definitions.push(...newDefinitions)
+                this.entries.push(...newEntries)
 
                 const importPromises = []
                 let directory = file.substring(0, file.lastIndexOf("/"));
@@ -235,7 +235,7 @@ function start() {
                     let term = hash.startsWith("#") ? hash.slice(1) : hash
                     term = term.replaceAll("%20", " ")
                     this.selectedTerm = term
-                    if (!this.selectedDefinition && this.definitionsById.has(this.termId(term))) {
+                    if (!this.selectedEntry && this.entriesById.has(this.termId(term))) {
                         this.selectedTerm = this.termId(term)
                         const hash = this.selectedTerm ? "#" + this.selectedTerm : ""
                         history.pushState('', document.title, window.location.pathname + hash)
@@ -254,9 +254,9 @@ function start() {
             },
 
             buildSearchTrie() {
-                for (const def of this.definitions) {
-                    for (const [term, score] of def.searchTokenScores.entries()) {
-                        this.searchTrie.insert(term, def.id, score)
+                for (const entry of this.entries) {
+                    for (const [term, score] of entry.searchTokenScores.entries()) {
+                        this.searchTrie.insert(term, entry.id, score)
                     }
                 }
             },
@@ -304,16 +304,16 @@ function tokensIn(string) /* : Array<String> */ {
 }
 
 
-function searchTokenScoresForDefinition(def) /* : Map<String, number> */ {
+function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
     const tokenScores = new Map();
     const tokenListFns = [
-        () => tokensIn(def.definition.more || ""),
-        () => tokensIn(def.definition.summary || ""),
-        () => tokensIn(def.category),
-        () => (def.tags || []).flatMap(tokensIn),
-        () => tokensIn(def.region || ""),
-        () => (def.acronyms || []).flatMap(tokensIn),
-        () => tokensIn(def.term)
+        () => tokensIn(entry.definition.more || ""),
+        () => tokensIn(entry.definition.summary || ""),
+        () => tokensIn(entry.category),
+        () => (entry.tags || []).flatMap(tokensIn),
+        () => tokensIn(entry.region || ""),
+        () => (entry.acronyms || []).flatMap(tokensIn),
+        () => tokensIn(entry.term)
     ]
     let score = 1
     for (let tlf of tokenListFns) {
