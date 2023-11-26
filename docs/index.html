@@ -104,8 +104,8 @@
                             <span v-for="syn in def.synonyms" class="synonym">{{syn}}</span>
                         </p>
                         <p class="badges">
-                            <span v-if="def.jurisdiction" class="jurisdiction badge bg-warning text-dark">
-                                Jurisdiction: {{def.jurisdiction}}
+                            <span v-if="def.region" class="region badge bg-warning text-dark">
+                                Region: {{def.region}}
                             </span>
                             <span v-for="tag in def.tags || []" class="tag badge bg-info text-dark">{{tag}}</span>
                         </p>

@@ -1,6 +1,6 @@
 {
   category: ["Australia"],
-  jurisdiction: "Australia",
+  region: "Australia",
   include: [
     "organisations"
   ],

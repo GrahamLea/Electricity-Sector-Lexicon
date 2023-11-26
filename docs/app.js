@@ -77,8 +77,8 @@ createApp({
                     context.category = data.category
                 }
             }
-            if (data.jurisdiction) {
-                context.jurisdiction = data.jurisdiction
+            if (data.region) {
+                context.region = data.region
             }
             if (data.tags) {
                 context.tags = (context.tags || []).concat(data.tags)
@@ -92,7 +92,7 @@ createApp({
                 }
                 definition.id = this.termId(definition.term)
                 definition.category = context.category
-                definition.jurisdiction = context.jurisdiction
+                definition.region = context.region
                 definition.tags = (definition.tags || []).concat(context.tags)
 
                 newDefinitions.push(definition)
