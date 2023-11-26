@@ -48,20 +48,21 @@
             </ul>
             <!-- TODO: Filtering by region -->
             <!-- TODO: Implement search -->
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
+            <div class="d-flex" role="search">
+                <input v-model="searchText" class="form-control me-2" type="search" placeholder="Search (/)"
+                       aria-label="Search" ref="searchField">
+            </div>
         </div>
     </nav>
 
     <div id="topLevelContainer" class="container">
 
-        <header v-if="!selectedTerm" id="intro" class="lead text-center">
+        <header v-if="!selectedTerm && !hasSearchTerms" id="intro" class="lead text-center">
             A dictionary of electricity sector terminology for industry newcomers.
         </header>
 
         <div class="alert text-center" v-if="definitions.length === 0" role="alert" style="opacity: 50%;">
-                Loading definitions...
+            Loading definitions...
         </div>
 
         <template v-if="selectedTerm">
@@ -73,66 +74,122 @@
                 </span>
                 <span v-else>
                     <i class="bi bi-exclamation-triangle-fill" style="color: gold;"></i>
-                    There is no entry for '{{selectedTerm}}'.
+                    There is no entry for '{{selectedTerm}}'
                 </span>
                 <button type="button"
                         class="btn btn-dark btn-sm"
                         style="margin-left: 2em"
                         @click="clearSelectedTerm"
-                >Show All</button>
+                >Show All
+                </button>
             </div>
         </template>
 
-        <template v-for="[category, defs] in definitionsByCategory">
-
-            <header class="category-header">
-                <div class="category-label text-uppercase">Category</div>
-                <h1>{{category}}</h1>
-            </header>
-
-            <section v-for="def in defs" class="definition card" :id="def['id']">
-                <header class="card-header">
-                    <section class="card-title">
-                        <h2 class="term">
-                            {{def.term}}
-                            <span v-if="def.acronyms" class="main-acronym">{{def.acronyms[0]}}</span>
-                            <!-- TODO: Float a star on the right if it's frequently used? -->
-                        </h2>
-                        <p v-if="def.synonyms || (def.acronyms && def.acronyms.length > 1)" class="also-known-as">
-                            Also known as:
-                            <span v-for="a in def.acronyms.slice(1)" class="acronym">{{a}}</span>
-                            <span v-for="syn in def.synonyms" class="synonym">{{syn}}</span>
-                        </p>
-                        <p class="badges">
-                            <span v-if="def.region" class="region badge bg-warning text-dark">
-                                Region: {{def.region}}
-                            </span>
-                            <span v-for="tag in def.tags || []" class="tag badge bg-info text-dark">{{tag}}</span>
-                        </p>
-                    </section>
-                </header>
-
-                <div class="card-body">
-                    <p class="definition-text lead">
-                        <template v-for="part in textSections(def.definition.summary)">
-                            <span v-if="isLink(part)" v-html="linkTagFor(part)" class="link"></span>
-                            <template v-else>{{part}}</template>
-                        </template>
-                    </p>
-                    <p class="definition-more">
-                        <template v-for="part in textSections(def.definition.more)">
-                            <span v-if="isLink(part)" v-html="linkTagFor(part)" class="link"></span>
-                            <template v-else>{{part}}</template>
-                        </template>
-                    </p>
-                    <section v-if="def.links" class="links">
-                        <template v-for="link in def.links">
-                            <a :href="link.href" target="_blank">{{link.title}}</a>
-                        </template>
-                    </section>
-                </div>
-            </section>
+        <template v-if="hasSearchTerms">
+            <div class="alert text-center alert-light"
+                 role="alert">
+                <span v-if="searchedDefinitions.length !== 0">
+                    Showing {{searchedDefinitions.length}} search result<span v-if="searchedDefinitions.length > 1">s</span>
+                    matching '{{searchText}}'
+                </span>
+                <span v-else>
+                    There are no search results for '{{searchText}}'
+                </span>
+                <button type="button"
+                        class="btn btn-dark btn-sm"
+                        style="margin-left: 2em"
+                        @click="clearSearchText"
+                >Show All
+                </button>
+            </div>
         </template>
+
+        <transition-group tag="div"
+                          id="entries"
+                          name="entries">
+
+            <template v-for="(def, index) in definitionsSorted">
+
+                <template v-if="!hasSearchTerms">
+                    <header v-if="index === 0 || definitionsSorted[index - 1].category !== def.category"
+                            class="category-header"
+                            :key="'category:' + def.category">
+                        <div class="category-label text-uppercase">Category</div>
+                        <h1>{{def.category}}</h1>
+                    </header>
+                </template>
+
+                <section class="definition card" :key="def.id">
+                    <header class="card-header">
+                        <section class="card-title">
+                            <h2 class="term">
+                                {{def.term}}
+                                <span v-if="def.acronyms" class="main-acronym">{{def.acronyms[0]}}</span>
+                                <!-- TODO: Float a star on the right if it's frequently used? -->
+                            </h2>
+                            <p v-if="def.synonyms || (def.acronyms && def.acronyms.length > 1)" class="also-known-as">
+                                Also known as:
+                                <span v-for="a in def.acronyms.slice(1)" class="acronym">{{a}}</span>
+                                <span v-for="syn in def.synonyms" class="synonym">{{syn}}</span>
+                            </p>
+                            <p v-if="hasSearchTerms" class="category">
+                                Category: {{def.category}}
+                            </p>
+                            <p class="badges">
+                                <span v-if="def.region" class="region badge bg-warning text-dark">
+                                    Region: {{def.region}}
+                                </span>
+                                <span v-for="tag in def.tags || []" class="tag badge bg-info text-dark">{{tag}}</span>
+                            </p>
+                        </section>
+                    </header>
+
+                    <div class="card-body">
+                        <p class="definition-text lead">
+                            <template v-for="part in textSections(def.definition.summary)">
+                                <template v-if="isLink(part)">
+                                    <template v-if="definitionsById.has(termId(termInLink(part)))">
+                                        <a :href="'#' + termId(termInLink(part))"
+                                           @click.prevent="selectedTerm = termId(termInLink(part))">
+                                            {{termInLink(part)}}
+                                        </a>
+                                    </template>
+                                    <template v-else>
+                                        <i class="bi bi-exclamation-diamond-fill"></i>️
+                                        {{part}}
+                                        <i class="bi bi-exclamation-diamond-fill"></i>
+                                    </template>
+                                </template>
+                                <template v-else>{{part}}</template>
+                            </template>
+                        </p>
+                        <p class="definition-more">
+                            <template v-for="part in textSections(def.definition.more)">
+                                <template v-if="isLink(part)">
+                                    <template v-if="definitionsById.has(termId(termInLink(part)))">
+                                        <a :href="'#' + termId(termInLink(part))"
+                                           @click.prevent="selectedTerm = termId(termInLink(part))">
+                                            {{termInLink(part)}}
+                                        </a>
+                                    </template>
+                                    <template v-else>
+                                        <i class="bi bi-exclamation-diamond-fill"></i>️
+                                        {{part}}
+                                        <i class="bi bi-exclamation-diamond-fill"></i>
+                                    </template>
+                                </template>
+                                <template v-else>{{part}}</template>
+                            </template>
+                        </p>
+                        <section v-if="def.links" class="links">
+                            <template v-for="link in def.links">
+                                <a :href="link.href" target="_blank">{{link.title}}</a>
+                            </template>
+                        </section>
+                    </div>
+                </section>
+            </template>
+        </transition-group>
     </div>
 </main>
 

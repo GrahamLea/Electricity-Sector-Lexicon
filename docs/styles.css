@@ -10,6 +10,29 @@
     margin: 2em 0;
 }
 
+#entries {
+    position: relative; /* Required to anchor the position: absolute used below during transitions */
+}
+
+/* Transition states used by Vue when inserting/moving/removing entries */
+.entries-move,
+.entries-enter-active,
+.entries-leave-active {
+    transition: all 0.3s ease;
+}
+
+.entries-enter-from,
+.entries-leave-to {
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.entries-leave-active {
+    position: absolute;
+}
+
 .category-header {
     margin-top: 5em;
 }
@@ -42,6 +65,10 @@
 
 .main-acronym:after {
     content: ")"
+}
+
+.card .category {
+    opacity: 70%;
 }
 
 .also-known-as {
