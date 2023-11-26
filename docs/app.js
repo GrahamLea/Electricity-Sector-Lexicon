@@ -103,15 +103,25 @@ function start() {
 
         watch: {
             selectedTerm(newSelectedTerm) {
-                if (newSelectedTerm && this.searchText !== "") {
-                    this.clearSearchText()
+                if (newSelectedTerm) {
+                    if (this.searchText !== "") {
+                        this.clearSearchText()
+                    }
+                    this.$nextTick(() => {
+                        window.scrollTo(0, 0)
+                    })
                 }
                 this.pushNewUrlStateSoon()
             },
 
             searchText(newSearchText) {
-                if (newSearchText !== "" && this.selectedTerm != null) {
-                    this.clearSelectedTerm()
+                if (newSearchText !== "") {
+                    if (this.selectedTerm != null) {
+                        this.clearSelectedTerm()
+                    }
+                    this.$nextTick(() => {
+                        window.scrollTo(0, 0)
+                    })
                 }
                 this.pushNewUrlStateSoon()
             }
@@ -230,7 +240,6 @@ function start() {
                         const hash = this.selectedTerm ? "#" + this.selectedTerm : ""
                         history.pushState('', document.title, window.location.pathname + hash)
                     }
-                    window.scrollTo(0, 0)
                 } else {
                     this.selectedTerm = undefined
                 }
