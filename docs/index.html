@@ -147,7 +147,7 @@
                     <div class="card-body">
                         <p class="entry-text lead">
                             <template v-for="part in textSections(entry.definition.summary)">
-                                <template v-if="isLink(part)">
+                                <span v-if="isLink(part)" class="link">
                                     <template v-if="entriesById.has(termId(termInLink(part)))">
                                         <a :href="'#' + termId(termInLink(part))"
                                            @click.prevent="selectedTerm = termId(termInLink(part))">
@@ -159,13 +159,13 @@
                                         {{part}}
                                         <i class="bi bi-exclamation-diamond-fill"></i>
                                     </template>
-                                </template>
+                                </span>
                                 <template v-else>{{part}}</template>
                             </template>
                         </p>
                         <p class="entry-more">
                             <template v-for="part in textSections(entry.definition.more)">
-                                <template v-if="isLink(part)">
+                                <span v-if="isLink(part)" class="link">
                                     <template v-if="entriesById.has(termId(termInLink(part)))">
                                         <a :href="'#' + termId(termInLink(part))"
                                            @click.prevent="selectedTerm = termId(termInLink(part))">
@@ -177,7 +177,7 @@
                                         {{part}}
                                         <i class="bi bi-exclamation-diamond-fill"></i>
                                     </template>
-                                </template>
+                                </span>
                                 <template v-else>{{part}}</template>
                             </template>
                         </p>
