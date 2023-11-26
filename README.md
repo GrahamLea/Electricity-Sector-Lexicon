@@ -1,12 +1,12 @@
 # Electricity Sector Lexicon
 
-----------------------------
 
 _Keywords: dictionary, encyclopedia_
 
 
 > [!TIP]
-> ## [Open the Electricity Sector Lexicon](https://INSERT_LINK_HERE)
+> Click here to open the
+> ## [Electricity Sector Lexicon](https://grahamlea.github.io/Electricity-Sector-Lexicon/)
 
 
 This project is an attempt to make a relatively comprehensive and
