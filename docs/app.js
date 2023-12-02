@@ -7,6 +7,9 @@ const createApp = await import(
 const LOG_DATA_LOADING = false
 const DATA_ROOT = "data/index.json5"
 
+const searchLog = (...args) => {}
+// const searchLog = console.log
+
 const LINK_REGEX = /(\[.+?])/
 const SPACES_REGEX = / +/g
 const NON_WORD_CHARS_REGEX = /[^\w'_-]+/g
@@ -40,18 +43,28 @@ function start() {
             },
 
             searchTerms() {
-                return this.searchText.split(SPACES_REGEX).filter(s => s.length > 0)
+                const searchTerms = this.searchText.split(SPACES_REGEX)
+                    .filter(s => s.length > 0)
+                    .map(s => s.toLowerCase());
+                searchLog(`searchText: '${this.searchText}' -> searchTerms: ${searchTerms}`)
+                return searchTerms
             },
 
             hasSearchTerms() {
-                return this.searchTerms.length !== 0
+                const hasSearchTerms = this.searchTerms.length !== 0;
+                searchLog(`searchTerms: '${this.searchTerms}' -> hasSearchTerms: ${hasSearchTerms}`)
+                return hasSearchTerms
             },
 
             searchedEntries() {
-                if (!this.hasSearchTerms) return []
+                if (!this.hasSearchTerms) {
+                    searchLog(`searchedEntries(): !hasSearchTerms`)
+                    return []
+                }
 
                 // noinspection JSPotentiallyInvalidTargetOfIndexedPropertyAccess
                 const matchScores = this.searchTrie.getAll(this.searchTerms[0])
+                searchLog("    matchScores:", matchScores)
                 for (const term of this.searchTerms.splice(1)) {
                     const nextTermScores = this.searchTrie.getAll(term)
                     for (const [id, score] of Object.entries(matchScores)) {
@@ -62,6 +75,7 @@ function start() {
                         }
                     }
                 }
+                searchLog("    matchScores (after filter+sum):", matchScores)
 
                 const sortedMatchScores = Object.entries(matchScores)
                     .sort(([idA, scoreA], [idB, scoreB]) => {
@@ -71,7 +85,10 @@ function start() {
                                     : idA > idB ? 1
                                         : 0
                     });
-                return sortedMatchScores.map(([id, _]) => this.entriesById.get(id))
+                searchLog("    sortedMatchScores:", sortedMatchScores)
+                const terms = sortedMatchScores.map(([id, _]) => this.entriesById.get(id));
+                searchLog("    terms:", sortedMatchScores)
+                return terms
             },
 
             entriesById() {
@@ -182,7 +199,6 @@ function start() {
                     entry.category = context.category
                     entry.region = context.region
                     entry.tags = (entry.tags || []).concat(context.tags || [])
-                    entry.searchTokenScores = searchTokenScoresForEntry(entry)
                     newEntries.push(entry)
                 }
                 this.entries.push(...newEntries)
@@ -285,11 +301,11 @@ function start() {
                 console.log("buildSearchTrie(): Starting")
                 const start = Date.now()
                 for (const entry of this.entries) {
-                    for (const [term, score] of entry.searchTokenScores.entries()) {
+                    for (const [term, score] of searchTokenScoresForEntry(entry).entries()) {
                         this.searchTrie.insert(term, entry.id, score)
                     }
                 }
-                console.log(`buildSearchTrie(): Done. ${this.searchTrie.leavesCount()} terms included in ${Date.now() - start}ms`)
+                console.log(`buildSearchTrie(): Done. ${this.searchTrie.leavesCount()} tokens included in ${Date.now() - start}ms`)
             },
 
             onKeyPress(event) {
