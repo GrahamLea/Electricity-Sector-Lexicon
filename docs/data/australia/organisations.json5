@@ -45,9 +45,10 @@
     {
       term: "Australian Energy Regulator",
       acronyms: [ "AER" ],
+      placeholder: true,
       definition: {
-        summary: "TODO",
-        more: "TODO"
+        summary: "",
+        more: ""
       },
       links: [
         { title: "", href: "" },
@@ -56,9 +57,10 @@
     {
       term: "Australian Renewable Energy Agency",
       acronyms: [ "ARENA" ],
+      placeholder: true,
       definition: {
-        summary: "TODO",
-        more: "TODO"
+        summary: "",
+        more: ""
       },
       links: [
         { title: "", href: "" },
@@ -67,9 +69,10 @@
     {
       term: "Energy Security Board",
       acronyms: [ "ESB" ],
+      placeholder: true,
       definition: {
-        summary: "TODO",
-        more: "TODO"
+        summary: "",
+        more: ""
       },
       links: [
         { title: "", href: "" },

@@ -108,3 +108,9 @@
     padding: 0.2em;
     border-radius: 0.2em;
 }
+
+.entryPlaceholder {
+    font-style: italic;
+    opacity: 50%;
+    margin-bottom: 0;
+}
