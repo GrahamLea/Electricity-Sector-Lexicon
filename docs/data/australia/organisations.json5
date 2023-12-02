@@ -28,15 +28,18 @@
       definition: {
         summary:
         "The highest-level operator of most of Australia's electricity networks \
-        (including all those in the [National Energy Market]), Victoria's gas network, and energy-trading markets.",
+        (including all those in the [National Energy Market]), Victoria's gas network, and energy-trading markets. \
+        It also has responsibility to lead the long-term evolution of Australia’s energy system.",
         more:
-        "AEMO are involved in real-time operation of the network, and help to manage planned and unplanned outages and emergencies. \
+        "Founded in 2009, AEMO are involved in real-time operation of networks, and help to manage planned and \
+        unplanned outages and emergencies. \
         They also forecast and plan for the long-term management of the networks. \
-        They are owned by Australian federal and state governments as well as energy industry members.",
+        They are owned by Australian federal, state, and territory governments as well as energy industry members.",
       },
       links: [
-        { title: "AEMO", href: "https://aemo.com.au/" },
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Operator" }
+        { title: "AEMO", href: "https://www.aemo.com.au/about/who-we-are" },
+        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Operator" },
+        { title: "Youtube", href: "https://www.youtube.com/watch?v=9PrWUQQH0XY" },
       ],
     },
     {
