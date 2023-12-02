@@ -4,6 +4,7 @@ const createApp = await import(
         : "https://unpkg.com/vue@3/dist/vue.esm-browser.js")
     .then(module => { return module.createApp })
 
+const LOG_DATA_LOADING = false
 const DATA_ROOT = "data/index.json5"
 
 const LINK_REGEX = /(\[.+?])/
@@ -132,7 +133,12 @@ function start() {
         },
 
         methods: {
-            async loadData(file, context) {
+            async loadData(file, context, logger) {
+                logger = logger || new IndentedLogger()
+                logger.log(`loadData(${file})`)
+
+                context = context ? deepCopy(context) : {}
+
                 const response = await fetch(file);
                 if (!response.ok) {
                     alert(`Error loading data from ${file}: ${response.statusText} (${response.status})`)
@@ -140,6 +146,7 @@ function start() {
                 }
                 let text = await response.text();
                 const data = JSON5.parse(text)
+
                 if (data.category) {
                     if (context.category) {
                         context.category = context.category + " / " + data.category
@@ -154,6 +161,17 @@ function start() {
                     context.tags = (context.tags || []).concat(data.tags)
                 }
 
+                if (data.entries) {
+                    this.loadEntries(file, data, context, logger)
+                }
+
+                if (data.include) {
+                    await this.loadIncludes(file, data, context, logger)
+                }
+            },
+
+            loadEntries(filename, data, context, logger) {
+                logger.log(`loadEntries(${filename})`)
                 let newEntries = []
                 for (let entry of data.entries || []) {
                     if (!context.category) {
@@ -168,9 +186,13 @@ function start() {
                     newEntries.push(entry)
                 }
                 this.entries.push(...newEntries)
+                logger.log(`loadEntries(${filename}): Loaded ${newEntries.length} entries`)
+            },
 
+            async loadIncludes(filename, data, context, logger) {
+                logger.log(`loadIncludes(${filename})`)
+                let directory = filename.substring(0, filename.lastIndexOf("/"));
                 const importPromises = []
-                let directory = file.substring(0, file.lastIndexOf("/"));
                 for (let importLocation of data.include || []) {
                     let importFile
                     if (importLocation.endsWith("/")) {
@@ -178,12 +200,14 @@ function start() {
                     } else {
                         importFile = `${directory}/${importLocation}.json5`
                     }
-                    importPromises.push(this.loadData(importFile, deepCopy(context)))
+                    const childLogger = logger.createDeeperInstance()
+                    importPromises.push(this.loadData(importFile, context, childLogger))
                 }
                 await Promise.all(importPromises).catch(reason => {
                     console.log("Error while loading data: ", reason)
                     alert("Error while loading data: " + reason)
                 })
+                logger.log(`loadIncludes(${filename}): Done`)
             },
 
             textSections(text) {
@@ -258,11 +282,14 @@ function start() {
             },
 
             buildSearchTrie() {
+                console.log("buildSearchTrie(): Starting")
+                const start = Date.now()
                 for (const entry of this.entries) {
                     for (const [term, score] of entry.searchTokenScores.entries()) {
                         this.searchTrie.insert(term, entry.id, score)
                     }
                 }
+                console.log(`buildSearchTrie(): Done. ${this.searchTrie.leavesCount()} terms included in ${Date.now() - start}ms`)
             },
 
             onKeyPress(event) {
@@ -279,7 +306,7 @@ function start() {
             window.addEventListener("keypress", this.onKeyPress);
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
-            await this.loadData(DATA_ROOT, {})
+            await this.loadData(DATA_ROOT)
             this.buildSearchTrie()
             this.updateSelectedTermFromHash();
             this.updateSearchTermFromQuery();
@@ -330,6 +357,23 @@ function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
 }
 
 
+class IndentedLogger {
+    constructor(depth) {
+        this.depth = depth || 0
+    }
+
+    createDeeperInstance() {
+        return LOG_DATA_LOADING ? new IndentedLogger(this.depth + 1) : this
+    }
+
+    log(...args) {
+        if (LOG_DATA_LOADING) {
+            console.log(' '.repeat(this.depth * 4), ...args)
+        }
+    }
+}
+
+
 class TrieNode {
     constructor() {
         this.branches = {}
@@ -365,6 +409,11 @@ class TrieNode {
             }
         }
         return result
+    }
+
+    leavesCount() {
+        return this.leaves.length
+            + Object.values(this.branches).reduce((total, node) => total + node.leavesCount(), 0)
     }
 }
 
