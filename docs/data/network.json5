@@ -38,7 +38,7 @@
         more:
         "The \"power plant\" designation recognises that, together, the grouped resources can have a high-magnitude \
         effect on a network equivalent to a traditional grid-scale plant, while the \"virtual\" moniker recognises \
-        that the \"plant\" does not exist in a physical form, but only by virtue of their being controlled as a group.",
+        that the \"plant\" does not exist in a physical form, but only by virtue of the resources being controlled as a group.",
       },
       links: [
         { title: "ARENA", href: "https://arena.gov.au/blog/what-are-virtual-power-plants-and-why-do-they-matter/" },
