@@ -1,5 +1,5 @@
 const createApp = await import(
-    location.origin === "https://grahamlea.github.io/"
+    location.origin === "https://grahamlea.github.io"
         ? "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
         : "https://unpkg.com/vue@3/dist/vue.esm-browser.js")
     .then(module => { return module.createApp })
