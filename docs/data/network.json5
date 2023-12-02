@@ -2,6 +2,26 @@
   category: "Electricity Network",
   entries: [
     {
+      term: "Consumer Energy Resources",
+      acronyms: [ "CER" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Electrical hardware owned by energy consumers that can generate or store energy, for example [solar \
+         PV] systems, batteries, and [electric vehicles]. \
+         It may also include [controllable loads] like hot water systems, pool equipment, or air conditioners.",
+        more:
+        "CER is a subset of [Distributed Energy Resources] (DER), being those DER that are owned by consumers, i.e. \
+         parties that are customers of an electricity retailer. \
+         The CER term seems to be most popular in Australia at present. \
+         Note that some parties are using the term CER as a complete replacement for the term DER."
+      },
+      links: [
+        { title: "Energy.gov.au", href: "https://www.energy.gov.au/government-priorities/energy-and-climate-change-ministerial-council/working-groups/consumer-energy-resources-working-group" },
+        { title: "NSW Government", href: "https://www.parliament.nsw.gov.au/lcdocs/submissions/82351/0002%20Master%20Electricians%20Australia.pdf" },
+      ],
+    },
+    {
       term: "Distributed Energy Resources",
       acronyms: [ "DER" ],
       synonyms: [ "Distributed Energy", "Decentralised Energy", "Distributed Generation", "Embedded Generation" ],
