@@ -128,7 +128,7 @@
                             </h2>
                             <p v-if="entry.synonyms || (entry.acronyms && entry.acronyms.length > 1)" class="also-known-as">
                                 Also known as:
-                                <span v-for="a in entry.acronyms.slice(1)" class="acronym">{{a}}</span>
+                                <span v-if="entry.acronyms" v-for="a in entry.acronyms.slice(1)" class="acronym">{{a}}</span>
                                 <span v-for="syn in entry.synonyms" class="synonym">{{syn}}</span>
                             </p>
                             <p v-if="hasSearchTerms" class="category">
