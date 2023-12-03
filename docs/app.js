@@ -93,8 +93,18 @@ function start() {
 
             entriesById() {
                 let map = new Map()
-                for (let d of this.entries) {
-                    map.set(d.id, d)
+                for (let e of this.entries) {
+                    map.set(e.id, e)
+                }
+                return map
+            },
+
+            synonymsToTermIdsMap() {
+                let map = new Map()
+                for (let e of this.entries) {
+                    for (let s of e.synonyms || []) {
+                        map.set(this.termId(s), e.id)
+                    }
                 }
                 return map
             },
@@ -240,6 +250,12 @@ function start() {
 
             termInLink(text) {
                 return text.slice(1, -1)
+            },
+
+            termIdForLinkText(text) {
+                const textAsTermId = this.termId(text);
+                return this.entriesById.has(textAsTermId) ? textAsTermId
+                    : this.synonymsToTermIdsMap.get(textAsTermId)
             },
 
             clearSelectedTerm() {

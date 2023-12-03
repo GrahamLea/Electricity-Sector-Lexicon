@@ -148,9 +148,9 @@
                             <p class="entry-text lead">
                                 <template v-for="part in textSections(entry.definition.summary)">
                                     <span v-if="isLink(part)" class="link">
-                                        <template v-if="entriesById.has(termId(termInLink(part)))">
-                                            <a :href="'#' + termId(termInLink(part))"
-                                               @click.prevent="selectedTerm = termId(termInLink(part))">
+                                        <template v-if="termIdForLinkText(termInLink(part))">
+                                            <a :href="'#' + termIdForLinkText(termInLink(part))"
+                                               @click.prevent="selectedTerm = termIdForLinkText(termInLink(part))">
                                                 {{termInLink(part)}}
                                             </a>
                                         </template>
@@ -167,9 +167,9 @@
                                 <p class="entry-more-paragraph" v-for="para in entry.definition.more.split('\n')">
                                     <template v-for="part in textSections(para)">
                                         <span v-if="isLink(part)" class="link">
-                                            <template v-if="entriesById.has(termId(termInLink(part)))">
-                                                <a :href="'#' + termId(termInLink(part))"
-                                                   @click.prevent="selectedTerm = termId(termInLink(part))">
+                                            <template v-if="termIdForLinkText(termInLink(part))">
+                                                <a :href="'#' + termIdForLinkText(termInLink(part))"
+                                                   @click.prevent="selectedTerm = termIdForLinkText(termInLink(part))">
                                                     {{termInLink(part)}}
                                                 </a>
                                             </template>
