@@ -20,12 +20,13 @@
         Multiple strings connected together, either in series or [parallel], are referred to as an array. \
         (Technically, a single string is also an array.) \
         When panels or strings are connected in parallel, the currents are added together rather than the voltage. \n\
-        Because solar PV produces direct current (DC) but many electrical systems are built around [alternating current] (AC), \
-        an [inverter] is commonly used to convert the power from DC to AC before it is used. \n\
+        Solar PV produces direct current (DC), but many electrical systems are built around [alternating current] (AC), \
+        so an [inverter] is typically used to convert the power from DC to AC before it is either used or transmitted. \n\
         The power produced by a solar PV system is variable on multiple time scales. \
-        It will change over a year based on a property's angle towards the sun, over a day based on the property's \
-        exposure to the sun as the earth rotates through day and night, and even on the time scale of minutes and \
-        seconds as weather or nearby objects shade the system (or parts of it) from the sun's photons. \n\
+        It will change over a year based on a property's angle towards the sun at midday throughout the earth's orbit, \
+        over a day based on the property's exposure to the sun as the earth rotates through day and night, \
+        and even on the time scale of minutes and seconds as clouds or nearby objects shade parts of the system \
+        from the sun's photons. \n\
         While it's not uncommon to hear solar PV referred to as just \"solar\", it's worth keeping in mind that there \
         are various other uses of solar technology in the energy industry, for example [concentrated solar power] for \
         electricity generation via heat, and solar water heating."
