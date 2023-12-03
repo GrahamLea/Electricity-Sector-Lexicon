@@ -21,6 +21,7 @@ function start() {
         data() {
             return {
                 entries: [],
+                categoryHierarchies: new Map(),
                 selectedTerm: null,
                 searchText: "",
                 searchTrie: new TrieNode()
@@ -118,8 +119,12 @@ function start() {
                     return this.searchedEntries
                 }
 
+                const categoryOrder = Array(...this.categoryHierarchies.entries())
+                    .sort((kvA, kvB) => kvA[1].localeCompare(kvB[1]))
+                    .map(kv => kv[0])
+
                 const map = new Map()
-                for (const c of this.categories) {
+                for (const c of categoryOrder) {
                     map.set(c, [])
                 }
                 for (const d of this.entries) {
@@ -164,7 +169,7 @@ function start() {
                 logger = logger || new IndentedLogger()
                 logger.log(`loadData(${file})`)
 
-                context = context ? deepCopy(context) : {}
+                context = context || { categoryHierarchy: "1" }
 
                 const response = await fetch(file);
                 if (!response.ok) {
@@ -180,6 +185,7 @@ function start() {
                     } else {
                         context.category = data.category
                     }
+                    this.categoryHierarchies.set(context.category, context.categoryHierarchy)
                 }
                 if (data.region) {
                     context.region = data.region
@@ -219,7 +225,9 @@ function start() {
                 logger.log(`loadIncludes(${filename})`)
                 let directory = filename.substring(0, filename.lastIndexOf("/"));
                 const importPromises = []
+                let n = 0
                 for (let importLocation of data.include || []) {
+                    n++
                     let importFile
                     if (importLocation.endsWith("/")) {
                         importFile = `${directory}/${importLocation}index.json5`
@@ -227,7 +235,9 @@ function start() {
                         importFile = `${directory}/${importLocation}.json5`
                     }
                     const childLogger = logger.createDeeperInstance()
-                    importPromises.push(this.loadData(importFile, context, childLogger))
+                    const childContext = deepCopy(context)
+                    childContext.categoryHierarchy = childContext.categoryHierarchy + "." + n
+                    importPromises.push(this.loadData(importFile, childContext, childLogger))
                 }
                 await Promise.all(importPromises).catch(reason => {
                     console.log("Error while loading data: ", reason)
