@@ -1,0 +1,41 @@
+{
+  category: "Generation",
+  entries: [
+    {
+      term: "Solar Photovoltaics",
+      synonyms: [ "Solar PV", "PV" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Electricity generation that converts sunlight directly into electrical power through the use of solar \
+         cells, which use the photovoltaic effect to create a [direct current].",
+        more:
+        "Solar cells are typically made by connecting two layers of slightly different forms of silicon. \
+        When photons hit the materials, electrons are dislodged from the atoms in one of the materials into the other, \
+        and aren't able to easily move back in the other direction. \
+        Electrical cables then provide a low-resistance path for the electrons to migrate back to the other side, which \
+        leads them around a circuit, creating a direct current. \n\
+        A cell is typically small, roughly 10cm x 10cm. Multiple cells are connected into a solar panel or \"module\". \
+        A group of panels connected in [series] is known as a string, and will add together the voltages of the panels. \
+        Multiple strings connected together, either in series or [parallel], are referred to as an array. \
+        (Technically, a single string is also an array.) \
+        When panels or strings are connected in parallel, the currents are added together rather than the voltage. \n\
+        Because solar PV produces direct current (DC) but many electrical systems are built around [alternating current] (AC), \
+        an [inverter] is commonly used to convert the power from DC to AC before it is used. \n\
+        The power produced by a solar PV system is variable on multiple time scales. \
+        It will change over a year based on a property's angle towards the sun, over a day based on the property's \
+        exposure to the sun as the earth rotates through day and night, and even on the time scale of minutes and \
+        seconds as weather or nearby objects shade the system (or parts of it) from the sun's photons. \n\
+        While it's not uncommon to hear solar PV referred to as just \"solar\", it's worth keeping in mind that there \
+        are various other uses of solar technology in the energy industry, for example [concentrated solar power] for \
+        electricity generation via heat, and solar water heating."
+      },
+      links: [
+        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Photovoltaics" },
+        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Theory_of_solar_cells" },
+        { title: "HowStuffWorks", href: "https://science.howstuffworks.com/environmental/energy/solar-cell.htm" },
+        { title: "YouTube", href: "https://www.youtube.com/watch?v=Yxt72aDjFgY" },
+      ],
+    },
+  ]
+}

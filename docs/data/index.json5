@@ -1,5 +1,6 @@
 {
   include: [
+    "hardware",
     "network",
     "australia/"
   ]

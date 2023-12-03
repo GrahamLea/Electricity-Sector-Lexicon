@@ -1,0 +1,6 @@
+{
+  category: "Hardware",
+  include: [
+    "hardware-generation",
+  ]
+}
