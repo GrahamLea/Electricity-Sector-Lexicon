@@ -163,24 +163,26 @@
                                     <template v-else>{{part}}</template>
                                 </template>
                             </p>
-                            <p class="entry-more">
-                                <template v-for="part in textSections(entry.definition.more)">
-                                    <span v-if="isLink(part)" class="link">
-                                        <template v-if="entriesById.has(termId(termInLink(part)))">
-                                            <a :href="'#' + termId(termInLink(part))"
-                                               @click.prevent="selectedTerm = termId(termInLink(part))">
-                                                {{termInLink(part)}}
-                                            </a>
-                                        </template>
-                                        <template v-else>
-                                            <i class="bi bi-exclamation-diamond-fill"></i>️
-                                            {{part}}
-                                            <i class="bi bi-exclamation-diamond-fill"></i>
-                                        </template>
-                                    </span>
-                                    <template v-else>{{part}}</template>
-                                </template>
-                            </p>
+                            <div class="entry-more" v-if="entry.definition.more">
+                                <p class="entry-more-paragraph" v-for="para in entry.definition.more.split('\n')">
+                                    <template v-for="part in textSections(para)">
+                                        <span v-if="isLink(part)" class="link">
+                                            <template v-if="entriesById.has(termId(termInLink(part)))">
+                                                <a :href="'#' + termId(termInLink(part))"
+                                                   @click.prevent="selectedTerm = termId(termInLink(part))">
+                                                    {{termInLink(part)}}
+                                                </a>
+                                            </template>
+                                            <template v-else>
+                                                <i class="bi bi-exclamation-diamond-fill"></i>️
+                                                {{part}}
+                                                <i class="bi bi-exclamation-diamond-fill"></i>
+                                            </template>
+                                        </span>
+                                        <template v-else>{{part}}</template>
+                                    </template>
+                                </p>
+                            </div>
                             <section v-if="entry.links" class="links">
                                 <template v-for="link in entry.links">
                                     <a :href="link.href" target="_blank">{{link.title}}</a>
