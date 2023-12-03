@@ -11,7 +11,7 @@ const searchLog = (...args) => {}
 // const searchLog = console.log
 
 const LINK_REGEX = /(\[.+?])/
-const SPACES_REGEX = / +/g
+const WORD_SEPARATORS_REGEX = /[\s-]+/g
 const NON_WORD_CHARS_REGEX = /[^\w'_-]+/g
 
 
@@ -43,7 +43,7 @@ function start() {
             },
 
             searchTerms() {
-                const searchTerms = this.searchText.split(SPACES_REGEX)
+                const searchTerms = this.searchText.split(WORD_SEPARATORS_REGEX)
                     .filter(s => s.length > 0)
                     .map(s => s.toLowerCase());
                 searchLog(`searchText: '${this.searchText}' -> searchTerms: ${searchTerms}`)
@@ -241,7 +241,7 @@ function start() {
             },
 
             termId(term) {
-                return term.toLowerCase().replaceAll(SPACES_REGEX, "-")
+                return term.toLowerCase().replaceAll(WORD_SEPARATORS_REGEX, "-")
             },
 
             isLink(text) {
@@ -361,7 +361,7 @@ function deepCopy(objectOrArray) {
 function tokensIn(string) /* : Array<String> */ {
     return string
         .replaceAll(NON_WORD_CHARS_REGEX, " ")
-        .split(SPACES_REGEX)
+        .split(WORD_SEPARATORS_REGEX)
         .map(s => s.toLowerCase())
         .filter(s => !STOP_WORDS.has(s))
 }
