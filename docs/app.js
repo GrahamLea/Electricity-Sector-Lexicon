@@ -360,6 +360,7 @@ function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
         () => (entry.tags || []).flatMap(tokensIn),
         () => tokensIn(entry.region || ""),
         () => (entry.acronyms || []).flatMap(tokensIn),
+        () => (entry.synonyms || []).flatMap(tokensIn),
         () => tokensIn(entry.term)
     ]
     let score = 1
