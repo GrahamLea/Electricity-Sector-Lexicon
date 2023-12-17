@@ -3,7 +3,7 @@
   entries: [
     {
       term: "Australian Energy Market Commission",
-      acronyms: [ "AEMC" ],
+      abbreviations: [ "AEMC" ],
       definition: {
         summary:
         "The author of Australia's energy market rules. \
@@ -24,7 +24,7 @@
     },
     {
       term: "Australian Energy Market Operator",
-      acronyms: [ "AEMO" ],
+      abbreviations: [ "AEMO" ],
       definition: {
         summary:
         "The highest-level operator of most of Australia's electricity networks \
@@ -44,7 +44,7 @@
     },
     {
       term: "Australian Energy Regulator",
-      acronyms: [ "AER" ],
+      abbreviations: [ "AER" ],
       placeholder: true,
       definition: {
         summary: "",
@@ -56,7 +56,7 @@
     },
     {
       term: "Australian Renewable Energy Agency",
-      acronyms: [ "ARENA" ],
+      abbreviations: [ "ARENA" ],
       placeholder: true,
       definition: {
         summary: "",
@@ -68,7 +68,7 @@
     },
     {
       term: "Energy Security Board",
-      acronyms: [ "ESB" ],
+      abbreviations: [ "ESB" ],
       placeholder: true,
       definition: {
         summary: "",

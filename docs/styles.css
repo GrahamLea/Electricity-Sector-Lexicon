@@ -59,11 +59,11 @@
     margin: 2em 0;
 }
 
-.main-acronym:before {
+.main-abbreviation:before {
     content: "("
 }
 
-.main-acronym:after {
+.main-abbreviation:after {
     content: ")"
 }
 
@@ -76,7 +76,7 @@
     opacity: 70%;
 }
 
-.also-known-as .acronym:after ,
+.also-known-as .abbreviation:after ,
 .also-known-as .synonym:after {
     content: ", ";
 }

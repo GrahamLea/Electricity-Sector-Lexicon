@@ -385,7 +385,7 @@ function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
         () => tokensIn(entry.category),
         () => (entry.tags || []).flatMap(tokensIn),
         () => tokensIn(entry.region || ""),
-        () => (entry.acronyms || []).flatMap(tokensIn),
+        () => (entry.abbreviations || []).flatMap(tokensIn),
         () => (entry.synonyms || []).flatMap(tokensIn),
         () => tokensIn(entry.term)
     ]

@@ -123,12 +123,12 @@
                         <section class="card-title">
                             <h2 class="term">
                                 {{entry.term}}
-                                <span v-if="entry.acronyms" class="main-acronym">{{entry.acronyms[0]}}</span>
+                                <span v-if="entry.abbreviations" class="main-abbreviation">{{entry.abbreviations[0]}}</span>
                                 <!-- TODO: Float a star on the right if it's frequently used? -->
                             </h2>
-                            <p v-if="entry.synonyms || (entry.acronyms && entry.acronyms.length > 1)" class="also-known-as">
+                            <p v-if="entry.synonyms || (entry.abbreviations && entry.abbreviations.length > 1)" class="also-known-as">
                                 Also known as:
-                                <span v-if="entry.acronyms" v-for="a in entry.acronyms.slice(1)" class="acronym">{{a}}</span>
+                                <span v-if="entry.abbreviations" v-for="a in entry.abbreviations.slice(1)" class="abbreviation">{{a}}</span>
                                 <span v-for="syn in entry.synonyms" class="synonym">{{syn}}</span>
                             </p>
                             <p v-if="hasSearchTerms" class="category">

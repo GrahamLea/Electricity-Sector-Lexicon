@@ -3,7 +3,7 @@
   entries: [
     {
       term: "Consumer Energy Resources",
-      acronyms: [ "CER" ],
+      abbreviations: [ "CER" ],
       usedVeryFrequently: true,
       definition: {
         summary:
@@ -23,7 +23,7 @@
     },
     {
       term: "Distributed Energy Resources",
-      acronyms: [ "DER" ],
+      abbreviations: [ "DER" ],
       synonyms: [ "Distributed Energy", "Decentralised Energy", "Distributed Generation", "Embedded Generation" ],
       usedVeryFrequently: true,
       definition: {
@@ -50,7 +50,7 @@
     },
     {
       term: "Virtual Power Plant",
-      acronyms: [ "VPP" ],
+      abbreviations: [ "VPP" ],
       usedVeryFrequently: true,
       definition: {
         summary:
