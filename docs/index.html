@@ -25,9 +25,6 @@
 </head>
 
 <body>
-<noscript>
-    <strong>This page requires JavaScript. Please enable it to continue.</strong>
-</noscript>
 
 <main id="app">
 
@@ -58,10 +55,29 @@
 
         <header v-if="!selectedTerm && !hasSearchTerms" id="intro" class="lead text-center">
             A dictionary of electricity sector terminology for industry newcomers.
+            <noscript>
+                <p style="margin-top: 1em;"><strong>This page requires JavaScript. Please enable it to continue.</strong></p>
+            </noscript>
         </header>
 
         <div class="alert text-center" v-if="entries.length === 0" role="alert" style="opacity: 50%;">
             Loading entries...
+            <noscript>
+                <div style="margin-top: 1em;">
+                    This lexicon includes definitions for beginners of the following terms:
+                    <ul style="margin-top: 1em; list-style: none">
+                        <li>Solar Photovoltaics (PV)</li>
+                        <li>Consumer Energy Resources (CER)</li>
+                        <li>Distributed Energy Resources (DER)</li>
+                        <li>Virtual Power Plant (VPP)</li>
+                        <li>Australian Energy Market Commission (AEMC)</li>
+                        <li>Australian Energy Market Operator (AEMO)</li>
+                        <li>Australian Energy Regulator (AER)</li>
+                        <li>Australian Renewable Energy Agency (ARENA)</li>
+                        <li>Energy Security Board (ESB)</li>
+                    </ul>
+                </div>
+            </noscript>
         </div>
 
         <template v-if="selectedTerm">
