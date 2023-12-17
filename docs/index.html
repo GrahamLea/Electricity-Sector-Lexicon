@@ -201,9 +201,12 @@
                                 </p>
                             </div>
                             <section v-if="entry.links" class="links">
-                                <template v-for="link in entry.links">
-                                    <a :href="link.href" target="_blank">{{link.title}}</a>
-                                </template>
+                                <span v-for="link in entry.links" class="link">
+                                    <a :href="link.href" :title="linkTitle(link)" target="_blank">
+                                        {{link.source}}
+                                    </a>
+                                    <span v-if="link.isVideo" class="video-marker">📺</span>
+                                </span>
                             </section>
                         </template>
 

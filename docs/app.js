@@ -268,6 +268,18 @@ function start() {
                     : this.synonymsToTermIdsMap.get(textAsTermId)
             },
 
+            linkTitle(link) {
+                let host = new URL(link.href).host
+                if (host.startsWith("www.")) { host = host.substring(4) }
+
+                if (host.endsWith("wikipedia.org")) { host = "Wikipedia" }
+                else if (host === "youtube.com") { host = "YouTube" }
+
+                const source = link.source === host ? "" : ` - ${link.source}`
+
+                return `${link.title}${source} (${host})`
+            },
+
             clearSelectedTerm() {
                 this.selectedTerm = undefined
                 this.pushNewUrlStateSoon()

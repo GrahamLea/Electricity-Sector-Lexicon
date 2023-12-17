@@ -93,12 +93,16 @@
     font-size: smaller;
 }
 
-.links a {
+.links .link {
     padding: 0 0.5em;
     border-right: 1px solid #666;
 }
 
-.links a:last-child {
+.links .link .video-marker {
+    margin-left: 0.3em;
+}
+
+.links .link:last-child {
     border-right: none;
 }
 

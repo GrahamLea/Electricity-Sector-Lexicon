@@ -18,8 +18,8 @@
          The rules created by AEMC are enforced by the [Australian Energy Regulator] (AER)."
       },
       links: [
-        { title: "AEMC", href: "https://www.aemc.gov.au/about-us" },
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Commission" },
+        { source: "AEMC", title: "About Us", href: "https://www.aemc.gov.au/about-us" },
+        { source: "Wikipedia", title: "Australian Energy Market Commission", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Commission" },
       ]
     },
     {
@@ -37,9 +37,9 @@
         They are owned by Australian federal, state, and territory governments as well as energy industry members.",
       },
       links: [
-        { title: "AEMO", href: "https://www.aemo.com.au/about/who-we-are" },
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Operator" },
-        { title: "Youtube", href: "https://www.youtube.com/watch?v=9PrWUQQH0XY" },
+        { source: "AEMO", title: "Who We Are", href: "https://www.aemo.com.au/about/who-we-are" },
+        { source: "AEMO", title: "AEMO and its Markets", isVideo: true, href: "https://www.youtube.com/watch?v=9PrWUQQH0XY" },
+        { source: "Wikipedia", title: "Australian Energy Market Operator", href: "https://en.wikipedia.org/wiki/Australian_Energy_Market_Operator" }
       ],
     },
     {
@@ -51,7 +51,7 @@
         more: ""
       },
       links: [
-        { title: "", href: "" },
+        { source: "", href: "" },
       ],
     },
     {
@@ -63,7 +63,7 @@
         more: ""
       },
       links: [
-        { title: "", href: "" },
+        { source: "", href: "" },
       ],
     },
     {
@@ -75,7 +75,7 @@
         more: ""
       },
       links: [
-        { title: "", href: "" },
+        { source: "", href: "" },
       ],
     }
   ]

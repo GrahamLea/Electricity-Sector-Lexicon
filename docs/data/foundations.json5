@@ -28,9 +28,9 @@
         electromagnetic wave."
       },
       links: [
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Electric_current " },
-        { title: "Khan Academy", href: "https://www.khanacademy.org/science/electrical-engineering/introduction-to-ee/intro-to-ee/v/ee-current " },
-        { title: "Engineering Mindset", href: "https://www.youtube.com/watch?v=8Posj4WMo0o " },
+        { source: "Wikipedia", title: "Electric Current", href: "https://en.wikipedia.org/wiki/Electric_current" },
+        { source: "Khan Academy", title: "Electric Current", isVideo: true, href: "https://www.khanacademy.org/science/electrical-engineering/introduction-to-ee/intro-to-ee/v/ee-current" },
+        { source: "Engineering Mindset", title: "What is Current", isVideo: true, href: "https://www.youtube.com/watch?v=8Posj4WMo0o" },
       ],
     },
   ]

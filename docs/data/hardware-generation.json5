@@ -32,10 +32,10 @@
         electricity generation via heat, and solar water heating."
       },
       links: [
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Photovoltaics" },
-        { title: "Wikipedia", href: "https://en.wikipedia.org/wiki/Theory_of_solar_cells" },
-        { title: "HowStuffWorks", href: "https://science.howstuffworks.com/environmental/energy/solar-cell.htm" },
-        { title: "YouTube", href: "https://www.youtube.com/watch?v=Yxt72aDjFgY" },
+        { source: "Wikipedia", title: "Photovoltaics", href: "https://en.wikipedia.org/wiki/Photovoltaics" },
+        { source: "Wikipedia", title: "Theory of solar cells", href: "https://en.wikipedia.org/wiki/Theory_of_solar_cells" },
+        { source: "HowStuffWorks", title: "Solar Cell", href: "https://science.howstuffworks.com/environmental/energy/solar-cell.htm" },
+        { source: "Engineering Mindset", title: "Solar Panels Explained", isVideo: true, href: "https://www.youtube.com/watch?v=Yxt72aDjFgY" },
       ],
     },
   ]
