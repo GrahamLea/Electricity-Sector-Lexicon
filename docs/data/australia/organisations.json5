@@ -6,16 +6,18 @@
       abbreviations: [ "AEMC" ],
       definition: {
         summary:
-        "The author of Australia's energy market rules. \
-         An Australian statutory authority, appointed by federal, state, and territory governments, AEMC \
-         is responsible for making the rules governing Australia's [National Energy Market] (NEM), \
+        "An Australian statutory authority, appointed by federal, state, and territory governments, \
+         responsible for making the rules governing Australia's [National Energy Market] (NEM), \
          including retail aspects. \
-         It also provides advice on energy issues to Australian and New Zealand governments via the [ECMC].",
+         ",
         more:
-        "Established in 2005, AEMC produce the National Enery Rules, National Gas Rules, and \
-         National Energy Retail Rules, in accordance with corresponding national laws and objectives set by \
-         government. \
-         The rules created by AEMC are enforced by the [Australian Energy Regulator] (AER)."
+        "In short, AEMC is the author of Australia's energy market rules.  \
+        Established in 2005, AEMC produce the National Enery Rules, National Gas Rules, and \
+        National Energy Retail Rules, in accordance with corresponding national laws and objectives set by \
+        government. \
+        It also provides advice on energy issues to Australian and New Zealand governments via the [ECMC]. \n\
+        The rules created by AEMC are enforced by the [Australian Energy Regulator] (AER). \
+        The markets are operated by the [Australian Energy Market Operator] (AEMO)."
       },
       links: [
         { source: "AEMC", title: "About Us", href: "https://www.aemc.gov.au/about-us" },
