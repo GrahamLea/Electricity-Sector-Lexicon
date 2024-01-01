@@ -274,6 +274,7 @@ function start() {
 
                 if (host.endsWith("wikipedia.org")) { host = "Wikipedia" }
                 else if (host === "youtube.com") { host = "YouTube" }
+                else if (host === "khanacademy.org") { host = "Khan Academy" }
 
                 const source = link.source === host ? "" : ` - ${link.source}`
 
