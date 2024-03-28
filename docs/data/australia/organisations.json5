@@ -65,25 +65,30 @@
     {
       term: "Australian Renewable Energy Agency",
       abbreviations: [ "ARENA" ],
-      placeholder: true,
+      isStub: true,
       definition: {
-        summary: "",
+        summary:
+          "An independent agency of the Australian Government tasked with increasing the competitiveness and \
+           supply of renewable energy in Australia, in particular by accelerating pre-commercial innovation.",
         more: ""
       },
       links: [
-        { source: "", href: "" },
+        { source: "ARENA", title: "About ARENA", href: "https://arena.gov.au/about/" },
       ],
     },
     {
       term: "Energy Security Board",
       abbreviations: [ "ESB" ],
-      placeholder: true,
+      isStub: true,
       definition: {
-        summary: "",
+        summary:
+        "An independent statutory body in Australia established to coordinate national energy security policies and \
+        reforms, and overseen by the Energy and Climate Change Ministerial Council.",
         more: ""
       },
       links: [
-        { source: "", href: "" },
+        { source: "energy.gov.au", title: "Energy and Climate Change Ministerial Council",
+          href: "https://www.energy.gov.au/energy-and-climate-change-ministerial-council" },
       ],
     }
   ]

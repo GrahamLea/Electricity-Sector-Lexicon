@@ -163,9 +163,27 @@
                     </header>
 
                     <div class="card-body">
-                        <template v-if="entry.placeholder !== true">
-                            <p class="entry-text lead">
-                                <template v-for="part in textSections(entry.definition.summary)">
+                        <p class="entry-text lead">
+                            <template v-for="part in textSections(entry.definition.summary)">
+                                <span v-if="isLink(part)" class="link">
+                                    <template v-if="termIdForLinkText(termInLink(part))">
+                                        <a :href="'#' + termIdForLinkText(termInLink(part))"
+                                           @click.prevent="selectedTerm = termIdForLinkText(termInLink(part))">
+                                            {{termInLink(part)}}
+                                        </a>
+                                    </template>
+                                    <template v-else>
+                                        <i class="bi bi-exclamation-diamond-fill"></i>️
+                                        {{part}}
+                                        <i class="bi bi-exclamation-diamond-fill"></i>
+                                    </template>
+                                </span>
+                                <span v-else v-html="part"/>
+                            </template>
+                        </p>
+                        <div class="entry-more" v-if="entry.definition.more">
+                            <p class="entry-more-paragraph" v-for="para in entry.definition.more.split('\n')">
+                                <template v-for="part in textSections(para)">
                                     <span v-if="isLink(part)" class="link">
                                         <template v-if="termIdForLinkText(termInLink(part))">
                                             <a :href="'#' + termIdForLinkText(termInLink(part))"
@@ -182,38 +200,17 @@
                                     <span v-else v-html="part"/>
                                 </template>
                             </p>
-                            <div class="entry-more" v-if="entry.definition.more">
-                                <p class="entry-more-paragraph" v-for="para in entry.definition.more.split('\n')">
-                                    <template v-for="part in textSections(para)">
-                                        <span v-if="isLink(part)" class="link">
-                                            <template v-if="termIdForLinkText(termInLink(part))">
-                                                <a :href="'#' + termIdForLinkText(termInLink(part))"
-                                                   @click.prevent="selectedTerm = termIdForLinkText(termInLink(part))">
-                                                    {{termInLink(part)}}
-                                                </a>
-                                            </template>
-                                            <template v-else>
-                                                <i class="bi bi-exclamation-diamond-fill"></i>️
-                                                {{part}}
-                                                <i class="bi bi-exclamation-diamond-fill"></i>
-                                            </template>
-                                        </span>
-                                        <span v-else v-html="part"/>
-                                    </template>
-                                </p>
-                            </div>
-                            <section v-if="entry.links" class="links">
-                                <span v-for="link in entry.links" class="link">
-                                    <a :href="link.href" :title="linkTitle(link)" target="_blank">
-                                        {{link.source}}
-                                    </a>
-                                    <span v-if="link.isVideo" class="video-marker">📺</span>
-                                </span>
-                            </section>
-                        </template>
-
-                        <p v-else class="entryPlaceholder">
-                            This is a placeholder entry in lieu of a proper definition.<br/>
+                        </div>
+                        <section v-if="entry.links" class="links">
+                            <span v-for="link in entry.links" class="link">
+                                <a :href="link.href" :title="linkTitle(link)" target="_blank">
+                                    {{link.source}}
+                                </a>
+                                <span v-if="link.isVideo" class="video-marker">📺</span>
+                            </span>
+                        </section>
+                        <p v-if="entry.isStub == true" class="entryStub">
+                            This entry is a stub that would benefit from being expanded.<br/>
                             If you'd like to help by contributing, please visit the
                             <a href="https://github.com/GrahamLea/electricity-sector-lexicon" target="_blank">GitHub project</a>.
                         </p>
