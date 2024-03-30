@@ -34,6 +34,23 @@
       ],
     },
     {
+      term: "Direct Current",
+      abbreviations: [ "DC" ],
+      usedVeryFrequently: true,
+      isStub: true,
+      definition: {
+        summary:
+        "A form of [current] where charged particles flow in a single direction around the circuit, often at a \
+        relatively constant [voltage], in contrast to [alternating current].",
+        more:
+        "DC is the form of current produced by batteries (and used to charge them) and [solar PV], and is used \
+         for many electronics, computers, LED lighting, and in vehicles, including the drivetrain of [EV]s."
+      },
+      links: [
+        { source: "Wikipedia", title: "Direct Current", href: "https://en.wikipedia.org/wiki/Direct_current" },
+      ],
+    },
+    {
       term: "Energy",
       synonyms: [ "Electrical Energy" ],
       usedVeryFrequently: true,
