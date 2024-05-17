@@ -90,6 +90,61 @@
         { source: "energy.gov.au", title: "Energy and Climate Change Ministerial Council",
           href: "https://www.energy.gov.au/energy-and-climate-change-ministerial-council" },
       ],
+    },
+    {
+      term: "Ausgrid",
+      definition: {
+        summary:
+        "An Australian [DNSP] serving the most coastal parts of Sydney, NSW, up to Newcastle and the Upper Hunter.",
+      },
+      links: [
+        { source: "Ausgrid", title: "Ausgrid", href: "https://www.ausgrid.com.au/" },
+      ],
+    },
+    {
+      term: "Endeavour Energy",
+      definition: {
+        summary:
+        "An Australian [DNSP] serving the western suburbs of Sydney, NSW, out to the Blue Mountains, down to Wollongong, \
+         parts of the south coast, and the Southern Highlands.",
+      },
+      links: [
+        { source: "Endeavour Energy", title: "Endeavour Energy", href: "https://www.endeavourenergy.com.au/" },
+      ],
+    },
+    {
+      term: "Essential Energy",
+      definition: {
+        summary:
+        "An Australian [DNSP] serving almost all the geography of NSW outside the major cities of Sydney, Newcastle, \
+        Wollongong, Gosford, and their surrounds.",
+        more:
+        "Covers all of NSW not coverd by [Ausgrid], [Endeavour Energy], and [Evoenergy]."
+      },
+      links: [
+        { source: "Essential Energy", title: "Essential Energy", href: "https://www.essentialenergy.com.au/" },
+      ],
+    },
+    {
+      term: "Evoenergy",
+      definition: {
+        summary:
+        "An Australian [DNSP] serving the Australian Capital Territory (ACT).",
+        more: "Renamed from ActewAGL in 2018."
+      },
+      links: [
+        { source: "Evoenergy", title: "Evoenergy", href: "https://www.evoenergy.com.au/" },
+      ],
+    },
+    {
+      term: "Transgrid",
+      definition: {
+        summary:
+        "An Australian [TNSP] covering NSW and ACT."
+      },
+      links: [
+        { source: "Transgrid", title: "Transgrid", href: "https://www.transgrid.com.au/" },
+      ],
     }
   ]
 }
