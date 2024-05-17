@@ -95,7 +95,7 @@
       term: "Ausgrid",
       definition: {
         summary:
-        "An Australian [DNSP] serving the most coastal parts of Sydney, NSW, up to Newcastle and the Upper Hunter.",
+        "A [DNSP] in New South Wales (NSW) serving the most coastal parts of Sydney, up to Newcastle and the Upper Hunter.",
       },
       links: [
         { source: "Ausgrid", title: "Ausgrid", href: "https://www.ausgrid.com.au/" },
@@ -105,19 +105,42 @@
       term: "Endeavour Energy",
       definition: {
         summary:
-        "An Australian [DNSP] serving the western suburbs of Sydney, NSW, out to the Blue Mountains, down to Wollongong, \
-         parts of the south coast, and the Southern Highlands.",
+        "A [DNSP] in New South Wales (NSW) serving the western suburbs of Sydney, out to the Blue Mountains, \
+        down to Wollongong and parts of the south coast, and the Southern Highlands.",
       },
       links: [
         { source: "Endeavour Energy", title: "Endeavour Energy", href: "https://www.endeavourenergy.com.au/" },
       ],
     },
     {
+      term: "Energex",
+      definition: {
+        summary:
+        "A [DNSP] in Queensland (QLD) serving the major cities of Brisbane, Gold Coast, Sunshine Coast, and their surrounds.",
+      },
+      links: [
+        { source: "Energex", title: "Energex", href: "https://www.energex.com.au/" },
+      ],
+    },
+    {
+      term: "Ergon Energy",
+      definition: {
+        summary:
+        "A [DNSP] serving almost all the geography of Queensland (QLD) outside the major cities of the south-east.",
+        more:
+        "Covers distribution across most of Queensland not covered by [Energex], as well as operating isolated power \
+        stations in remote communities including the Torres Strait Islands."
+      },
+      links: [
+        { source: "Ergon Energy", title: "Ergon Energy", href: "https://www.ergon.com.au/" },
+      ],
+    },
+    {
       term: "Essential Energy",
       definition: {
         summary:
-        "An Australian [DNSP] serving almost all the geography of NSW outside the major cities of Sydney, Newcastle, \
-        Wollongong, Gosford, and their surrounds.",
+        "A [DNSP] serving almost all the geography of New South Wales (NSW) outside the major cities of Sydney, \
+        Newcastle, Wollongong, Gosford, and their surrounds.",
         more:
         "Covers all of NSW not coverd by [Ausgrid], [Endeavour Energy], and [Evoenergy]."
       },
@@ -129,7 +152,7 @@
       term: "Evoenergy",
       definition: {
         summary:
-        "An Australian [DNSP] serving the Australian Capital Territory (ACT).",
+        "A [DNSP] serving the Australian Capital Territory (ACT).",
         more: "Renamed from ActewAGL in 2018."
       },
       links: [
@@ -137,10 +160,20 @@
       ],
     },
     {
+      term: "Powerlink",
+      definition: {
+        summary:
+        "The [TNSP] in Queensland, covering the east cost from Cairns to the Gold Coast.",
+      },
+      links: [
+        { source: "Powerlink", title: "Powerlink", href: "https://www.powerlink.com.au/" },
+      ],
+    },
+    {
       term: "Transgrid",
       definition: {
         summary:
-        "An Australian [TNSP] covering NSW and ACT."
+        "The [TNSP] covering New South Wales (NSW) and Australian Capital Territory (ACT)."
       },
       links: [
         { source: "Transgrid", title: "Transgrid", href: "https://www.transgrid.com.au/" },
