@@ -102,6 +102,29 @@
       ],
     },
     {
+      term: "AusNet Services",
+      definition: {
+        summary:
+        "The [TNSP] in Victoria (VIC), and also a [DNSP] serving Melbourne's outer north and east suburbs and all of \
+        eastern regional Victoria.",
+        more:
+        "AusNet also operates a gas distribution network in Victoria."
+      },
+      links: [
+        { source: "AusNet Services", title: "AusNet Services", href: "https://www.ausnetservices.com.au/" },
+      ],
+    },
+    {
+      term: "Citipower",
+      definition: {
+        summary:
+        "A [DNSP] in Victoria (VIC) serving the CBD and inner suburbs of Melbourne.",
+      },
+      links: [
+        { source: "Citipower / Powercor", title: "Citipower / Powercor", href: "https://www.powercor.com.au/" },
+      ],
+    },
+    {
       term: "Endeavour Energy",
       definition: {
         summary:
@@ -152,7 +175,7 @@
       term: "Evoenergy",
       definition: {
         summary:
-        "A [DNSP] serving the Australian Capital Territory (ACT).",
+        "The [DNSP] serving the Australian Capital Territory (ACT).",
         more: "Renamed from ActewAGL in 2018."
       },
       links: [
@@ -160,10 +183,33 @@
       ],
     },
     {
+      term: "Jemena",
+      definition: {
+        summary:
+        "A [DNSP] in Victoria (VIC), covering north-west Melbourne.",
+        more:
+        "Jemena also operates gas transmission pipelines throughout Australia \
+         and some gas distribution in New South Wales (NSW)."
+      },
+      links: [
+        { source: "Jemena", title: "Jemena Electricity Network", href: "https://www.jemena.com.au/electricity/jemena-electricity-network/" },
+      ],
+    },
+    {
+      term: "Powercor",
+      definition: {
+        summary:
+        "A [DNSP] in Victoria (VIC), covering the western suburbs of Melbourne and all of western regional Victoria.",
+      },
+      links: [
+        { source: "Powercor", title: "Powercor", href: "https://www.powercor.com.au/" },
+      ],
+    },
+    {
       term: "Powerlink",
       definition: {
         summary:
-        "The [TNSP] in Queensland, covering the east cost from Cairns to the Gold Coast.",
+        "The [TNSP] in Queensland (QLD), covering the east cost from Cairns to the Gold Coast.",
       },
       links: [
         { source: "Powerlink", title: "Powerlink", href: "https://www.powerlink.com.au/" },
@@ -177,6 +223,17 @@
       },
       links: [
         { source: "Transgrid", title: "Transgrid", href: "https://www.transgrid.com.au/" },
+      ],
+    },
+    {
+      term: "United Energy",
+      definition: {
+        summary:
+        "A [DNSP] in Victoria (VIC) covering the eastern and south-easterns suburbs of Melbourne and \
+         the Mornington Peninsula."
+      },
+      links: [
+        { source: "United Energy", title: "United Energy", href: "https://www.unitedenergy.com.au/" },
       ],
     }
   ]
