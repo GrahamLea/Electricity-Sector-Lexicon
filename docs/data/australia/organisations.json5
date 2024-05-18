@@ -105,8 +105,8 @@
       term: "AusNet Services",
       definition: {
         summary:
-        "The [TNSP] in Victoria (VIC), and also a [DNSP] serving Melbourne's outer north and east suburbs and all of \
-        eastern regional Victoria.",
+        "The sole [TNSP] in Victoria (VIC), and also a [DNSP] serving Melbourne's outer north and east suburbs and \
+        all of eastern regional Victoria.",
         more:
         "AusNet also operates a gas distribution network in Victoria."
       },
@@ -133,6 +133,16 @@
       },
       links: [
         { source: "Endeavour Energy", title: "Endeavour Energy", href: "https://www.endeavourenergy.com.au/" },
+      ],
+    },
+    {
+      term: "ElectraNet",
+      definition: {
+        summary:
+        "The sole [TNSP] in South Australia (SA), though the network only covers the south-east quarter of the state.",
+      },
+      links: [
+        { source: "ElectraNet", title: "ElectraNet", href: "https://www.electranet.com.au/" },
       ],
     },
     {
@@ -175,11 +185,25 @@
       term: "Evoenergy",
       definition: {
         summary:
-        "The [DNSP] serving the Australian Capital Territory (ACT).",
+        "The sole [DNSP] serving the Australian Capital Territory (ACT).",
         more: "Renamed from ActewAGL in 2018."
       },
       links: [
         { source: "Evoenergy", title: "Evoenergy", href: "https://www.evoenergy.com.au/" },
+      ],
+    },
+    {
+      term: "Horizon Power",
+      abbreviations: ["HP"],
+      definition: {
+        summary:
+        "A [TNSP] and [DNSP] in Western Australia (WA), covering the majority of the state geographically, \
+        with the exception of the south-west corner.",
+        more:
+        "HP covers all of WA not covered by [Western Power]."
+      },
+      links: [
+        { source: "Horizon Power", title: "Horizon Power", href: "https://www.horizonpower.com.au/" },
       ],
     },
     {
@@ -196,6 +220,17 @@
       ],
     },
     {
+      term: "Power and Water Corporation",
+      abbreviations: ["PWC"],
+      definition: {
+        summary:
+        "The sole [TNSP] and [DNSP] in the Northern Territory (NT)."
+      },
+      links: [
+        { source: "Power and Water Corporation", title: "Power and Water Corporation", href: "https://www.powerwater.com.au/" },
+      ],
+    },
+    {
       term: "Powercor",
       definition: {
         summary:
@@ -209,10 +244,32 @@
       term: "Powerlink",
       definition: {
         summary:
-        "The [TNSP] in Queensland (QLD), covering the east cost from Cairns to the Gold Coast.",
+        "The sole [TNSP] in Queensland (QLD), covering the east cost from Cairns to the Gold Coast.",
       },
       links: [
         { source: "Powerlink", title: "Powerlink", href: "https://www.powerlink.com.au/" },
+      ],
+    },
+    {
+      term: "SA Power Networks",
+      abbreviations: ["SAPN"],
+      definition: {
+        summary:
+        "The sole [DNSP] covering South Australia (SA), though the network only covers south east coastal areas."
+      },
+      links: [
+        { source: "SA Power Networks", title: "SA Power Networks", href: "https://www.sapowernetworks.com.au/" },
+      ],
+    },
+    {
+      term: "TasNetworks",
+      synonyms: ["Tasmanian Networks"],
+      definition: {
+        summary:
+        "The sole [TNSP] and [DNSP] in Tasmania.",
+      },
+      links: [
+        { source: "TasNetworks", title: "TasNetworks", href: "https://www.tasnetworks.com.au/" },
       ],
     },
     {
@@ -234,6 +291,17 @@
       },
       links: [
         { source: "United Energy", title: "United Energy", href: "https://www.unitedenergy.com.au/" },
+      ],
+    },
+    {
+      term: "Western Power",
+      definition: {
+        summary:
+        "A [TNSP] and [DNSP] in Western Australia (WA) covering Perth, the south-western coastal areas from \
+        Geraldton down to Albany, and Kalgoorlie."
+      },
+      links: [
+        { source: "Western Power", title: "Western Power", href: "https://www.westernpower.com.au/" },
       ],
     }
   ]
