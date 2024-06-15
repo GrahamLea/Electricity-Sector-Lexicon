@@ -110,6 +110,16 @@ function start() {
                 return map
             },
 
+            abbreviationsToTermIdsMap() {
+                let map = new Map()
+                for (let e of this.entries) {
+                    for (let a of e.abbreviations || []) {
+                        map.set(this.termId(a), e.id)
+                    }
+                }
+                return map
+            },
+
             entriesSorted() {
                 if (this.selectedTerm) {
                     return [this.selectedEntry]
@@ -264,8 +274,11 @@ function start() {
 
             termIdForLinkText(text) {
                 const textAsTermId = this.termId(text);
-                return this.entriesById.has(textAsTermId) ? textAsTermId
-                    : this.synonymsToTermIdsMap.get(textAsTermId)
+                if (this.entriesById.has(textAsTermId)) {
+                    return textAsTermId;
+                }
+                return this.synonymsToTermIdsMap.get(textAsTermId)
+                    || this.abbreviationsToTermIdsMap.get(textAsTermId);
             },
 
             linkTitle(link) {
