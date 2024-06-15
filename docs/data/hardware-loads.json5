@@ -1,0 +1,20 @@
+{
+  category: "Loads",
+  entries: [
+    {
+      term: "Electric Vehicle",
+      synonyms: [
+        "Electric Vehicle",
+        "Battery Electric Vehicle"
+      ],
+      abbreviations: ["EV", "BEV"],
+      definition: {
+        summary:
+        "Motorised transport that uses stored electric charge as a source of [power].",
+        more:
+        ""
+      },
+      isStub: true
+    }
+  ]
+}

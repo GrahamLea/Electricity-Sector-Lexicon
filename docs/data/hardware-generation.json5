@@ -2,6 +2,20 @@
   category: "Generation",
   entries: [
     {
+      term: "Hydroelectricity",
+      synonyms: [
+        "Hydroelectric power",
+      ],
+      definition: {
+        summary:
+        "Production of electricity from moving water. \
+         May utilise a dam, river, ocean tides, or reservoirs built for [pumped hydro].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
       term: "Solar Photovoltaics",
       synonyms: [ "Solar PV", "PV" ],
       usedVeryFrequently: true,

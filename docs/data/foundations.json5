@@ -78,7 +78,7 @@
         ",
         more:
         "Power in electricity is literally the same as \"power\" in fundamental physics. \
-        In electricity, it is the main way by which generators, other power sources, and loads are often measured, \
+        In electricity, it is the main way by which generators, other power sources, and [load]s are often measured, \
         e.g. a 700MW power station, a 10kW [solar PV] system, or a 10W LED light bulb. \
         It is also used for discussion of grid-wide properties like peak demand and generation capacity. \
         \n\
@@ -120,6 +120,17 @@
       ],
     },
     {
+      term: "Load",
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "A single device that uses electric [power] (\"a load\ / \"loads\"), \
+         or the collective demand on an electric system (\"the load\").",
+        more: "",
+      },
+      isStub: true
+    },
+    {
       term: "Current",
       synonyms: [ "Electric Current" ],
       usedVeryFrequently: true,
@@ -127,7 +138,7 @@
         summary:
         "The flow of charged particles, e.g. electrons, through a medium, in response to a [voltage] being applied. \
         Conventionally represented by the symbol <i style='font-family: serif;'>I</i> (for <i>\"intensité du courant\"</i>). \
-        Measured in [Amperes], or “Amps”, abbreviated as “A”.",
+        Measured in [amperes], or “amps”, abbreviated as “A”.",
         more:
         "By way of analogy, measuring current in an electrical system is like measuring the volume of water passing a \
         point per second in a water system. \
@@ -155,7 +166,6 @@
       term: "Alternating Current",
       abbreviations: [ "AC" ],
       usedVeryFrequently: true,
-      isStub: true,
       definition: {
         summary:
         "A form of [current] where charged particles flow in both directions (in contrast to [direct current]), \
@@ -165,8 +175,9 @@
         hydroelectric dams, and wind turbines. \
         The sinusoidal waveform of many AC sources occurs as a result of the current being generated from the rotation \
         of a magnetic field that induces a current in a nearby conductor first in one direction and then the other.\n\
-        Alternating current is the dominant method of electricity [transmission] and [distribution], due in large part \
-        to the ability to easily step the voltage up and down using transformers to increase efficiency. \
+        Alternating current is the dominant method of transporting electric power in [transmission network]s and \
+        [distribution network]s, due in large part to the ability to easily step the voltage up and down using \
+        [transformer]s to increase efficiency. \
         AC is the way power is delivered to homes and businesses, and is used for many high-power applications \
         including electric motors, pumps, compressors, incandescent and fluorescent lighting, and electric heating \
         with both resistance and induction.\n\
@@ -180,7 +191,6 @@
       term: "Direct Current",
       abbreviations: [ "DC" ],
       usedVeryFrequently: true,
-      isStub: true,
       definition: {
         summary:
         "A form of [current] where charged particles flow in a single direction around the circuit, often at a \
@@ -238,5 +248,54 @@
         { source: "Veritasium", title: "The Big Misconception About Electricity", isVideo: true, href: "https://www.youtube.com/watch?v=bHIhgxav9LY" },
       ],
     },
+    {
+      term: "Kilowatt-Hours",
+      abbreviations: [ "kWh" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "The most common measure of electrical [energy], particularly for consumer devices and [energy retailer] billing.",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
+      term: "Volts",
+      abbreviations: [ "V" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "SI unit  for [voltage]. \
+         The potential for a charged particle moving from one part of a system to another to transfer energy.",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
+      term: "Amperes",
+      synonyms: [ "Amps" ],
+      abbreviations: [ "A" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "SI unit for [electric current]. The rate at which electric charges are moving past a point.",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
+      term: "Reactive Power",
+      definition: {
+        summary:
+        "Electric [power] which is generated but, due to being temporarily stored due to inductance or capacitance \
+        in [load]s, is not able to be used to do useful work, and instead dissipates in line resistance.",
+        more:
+        ""
+      },
+      isStub: true
+    }
   ]
 }

@@ -2,5 +2,7 @@
   category: "Hardware",
   include: [
     "hardware-generation",
+    "hardware-loads",
+    "hardware-storage",
   ]
 }
