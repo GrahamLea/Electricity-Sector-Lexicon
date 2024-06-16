@@ -26,3 +26,8 @@ The data that forms the lexicon is stored in the
 
 The lexicon GUI is in the [docs/](docs) folder and is a Vue 3 app 
 designed around the JSON data.
+
+
+## License
+
+See [LICENSE.md](LICENSE.md)
