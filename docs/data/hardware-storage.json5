@@ -2,6 +2,21 @@
   category: "Storage",
   entries: [
     {
+      term: "Battery Energy Storage System",
+      synonyms: [
+        "Battery storage power station"
+      ],
+      abbreviations: ["BESS"],
+      definition: {
+        summary:
+        "Large-scale energy storage using a fleet of batteries and other technology for coordinating energy storage \
+         and dispatch.",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
       term: "Pumped Hydro",
       synonyms: [
         "Pumped-storage hydroelectricity",

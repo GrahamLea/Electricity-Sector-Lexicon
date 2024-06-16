@@ -1,0 +1,18 @@
+{
+  category: "Technology",
+  entries: [
+    {
+      term: "Distributed Energy Resources Management System",
+      abbreviations: [ "DERMS" ],
+      definition: {
+        summary:
+        "Software (and possibly hardware) that monitors and controls a fleet of [DER]. \
+         Commonly used by a [VPP] or [DSO].",
+        more:
+        "",
+      },
+      isStub: true,
+      links: [],
+    },
+  ]
+}

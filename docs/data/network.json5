@@ -4,7 +4,7 @@
     {
       term: "Electrical Grid",
       synonyms: [
-        "Electric Grid"
+        "Electric Grid", "Grid"
       ],
       usedVeryFrequently: true,
       definition: {
@@ -138,6 +138,33 @@
       isStub: true
     },
     {
+      term: "Behind the Meter",
+      abbreviations: ["BTM"],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Categorisation of energy assets that reside, and energy flows that occur, within the premises of customers \
+         of an energy retailer. Contrasts with [Front of Meter].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
+      term: "Front of the Meter",
+      synonyms: [ "Front of Meter", "Grid-side" ],
+      abbreviations: ["FTM"],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Categorisation of energy assets that reside, and energy flows that occur, outside the premises of energy system \
+        end users. Analogous to typical uses of \"[grid]\". Contrasts with [Behind the Meter].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
       term: "Consumer Energy Resources",
       abbreviations: [ "CER" ],
       usedVeryFrequently: true,
@@ -210,6 +237,44 @@
         { source: "INACCESS", title: "Virtual Power Plant", isVideo: true, href: "https://www.youtube.com/watch?v=Kx1yXa6jWf4" },
         { source: "NTU Energy Research", title: "Virtual Power Plant", isVideo: true, href: "https://www.youtube.com/watch?v=cD9aqekDqng" }
       ],
+    },
+    {
+      term: "Meter Point Identifier",
+      synonyms: [
+        "Meter Point Administration Number (MPAN)",
+        "National Meter Identifier (NMI)",
+        "Metering Point Number (MPN)",
+        "Point de Référence de Mesure (PRM)"
+      ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Unique identifier for a connection point where a meter attaches an energy consumer to an [electric grid], \
+         typically used by [energy retailers] and other industry parties to identify a property. \
+         Some networks may only use [Meter Identifier]s.",
+        more:
+        "",
+      },
+      isStub: true,
+      links: [],
+    },
+    {
+      term: "Meter Identifier",
+      synonyms: [
+        "Meter Number",
+        "Meter Serial Number (MSN)",
+      ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Unique identifier for a physical meter that attaches an energy consumer to an [electric grid]. \
+         Sometimes used by [energy retailers] and other industry parties as a proxy for identifying a property, \
+         as if it were a [Meter Point Identifier], even though it could change due only to a hardware swap.",
+        more:
+        "",
+      },
+      isStub: true,
+      links: [],
     },
   ]
 }

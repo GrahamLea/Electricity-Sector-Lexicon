@@ -1,0 +1,28 @@
+{
+  category: "General",
+  entries: [
+    {
+      term: "Power Inverter",
+      synonyms: [ "Inverter" ],
+      definition: {
+        summary:
+        "Power electronic device that converts [DC] to [AC], very commonly found being used to convert the DC output \
+         of [solar PV] arrays or batteries to AC. Inverts the function of a [rectifier].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
+      term: "Rectifier",
+      definition: {
+        summary:
+        "Power electronic device that converts [AC] to [DC], required to store AC power from an [electric grid] into \
+         batteries, which charge and discharge using DC. Performs the opposite function of an [inverter].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+  ]
+}
