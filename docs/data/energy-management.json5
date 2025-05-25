@@ -2,6 +2,29 @@
   category: "Energy Management",
   entries: [
     {
+      term: "Export Limiting",
+      definition: {
+        summary:
+        "Limiting the [power] that a property can export to the [distribution network] from its [embedded generation].",
+        more:
+        "Export limits may be fixed or use [dynamic exports]. \
+         In Australia, many [DNSP]s limit residential properties to a fixed maximum export of 5 or 10 [kilowatts]."
+      },
+      isStub: true
+    },
+    {
+      term: "Dynamic Exports",
+      synonyms: ["Flexible Exports"],
+      definition: {
+        summary:
+        "[Export limiting] that implements a limit which changes over time, typically in response to conditions on \
+         the local [distribution network], and under the remote control of a [Distribution Network Operator].",
+        more:
+        ""
+      },
+      isStub: true
+    },
+    {
       term: "Solar Curtailment",
       definition: {
         summary:
@@ -11,7 +34,7 @@
          [feed-in tariff]. \
          May also be activated to protect the stability of the [distribution network] from an oversupply of \
          [embedded generation], which would typically be instigated by a [Distribution System Operator] automatically \
-         curtailing residential solar systems."
+         curtailing residential solar systems. Ideally, this is achieved using [dynamic exports]."
       },
       isStub: true
     },
