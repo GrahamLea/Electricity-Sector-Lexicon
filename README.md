@@ -28,6 +28,11 @@ The lexicon GUI is in the [docs/](docs) folder and is a Vue 3 app
 designed around the JSON data.
 
 
+## Contribute to the Project
+
+See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+
 ## License
 
 See [LICENSE.md](LICENSE.md)
