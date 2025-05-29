@@ -12,8 +12,8 @@ _Keywords: dictionary, encyclopedia_
 This project is an attempt to make a relatively comprehensive and
 accessible lexicon of electricity sector knowledge.
 
-The intended audience of the content is technically-minded adults who
-are new to the electricity sector.
+The intended audience of the content is technically-minded adult
+professionals who are new to the electricity sector.
 
 The lexicon is presented as a stateless web page that makes searching
 for relevant content easier.
