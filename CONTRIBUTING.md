@@ -1,7 +1,7 @@
-# Contributing Guide: Electricity Sector Lexicon
+# Contributing Guide: Electricity Sector Field Guide
 
 Want to help improve the 
-[Electricity Sector Lexicon](https://grahamlea.github.io/Electricity-Sector-Lexicon/)?
+[Electricity Sector Field Guide](https://grahamlea.github.io/Electricity-Sector-Lexicon/)?
 Great!
 Here's the deal...
 
@@ -38,7 +38,7 @@ briefly describing what you'd like to contribute.
 
 ## How to Write
 
-In creating content for the lexicon, please consider the following areas:
+In creating content for the field guide, please consider the following areas:
 
 
 ### Audience

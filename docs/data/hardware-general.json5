@@ -3,6 +3,7 @@
   entries: [
     {
       term: "Transformer",
+      usedVeryFrequently: true,
       definition: {
         summary:
         "Electrical component which transfers [AC] electrical energy from one circuit to another without an electrical \

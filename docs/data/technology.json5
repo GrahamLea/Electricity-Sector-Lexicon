@@ -39,7 +39,6 @@
          evolving an organisation's energy usage and assets. \
          EMS can also refer to Energy Management Software.",
       },
-      isStub: false,
       links: [
         { source: "gridX", title: "Home Energy Management System (HEMS)", href: "https://www.gridx.ai/knowledge/home-energy-management-system-hems" },
         { source: "Schneider Electric", title: "Integrated Home Energy Management Systems", isVideo: true, href: "https://www.youtube.com/watch?v=363rzcRqV0g&t=22s" },
