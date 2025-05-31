@@ -2,6 +2,7 @@
   category: "Australia",
   region: "Australia",
   include: [
-    "organisations"
+    "organisations",
+    "transition"
   ],
 }
