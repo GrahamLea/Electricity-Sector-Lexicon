@@ -1,7 +1,7 @@
 # Contributing Guide: Electricity Sector Field Guide
 
 Want to help improve the 
-[Electricity Sector Field Guide](https://grahamlea.github.io/Electricity-Sector-Lexicon/)?
+[Electricity Sector Field Guide](https://grahamlea.github.io/Electricity-Sector-Field-Guide/)?
 Great!
 Here's the deal...
 
@@ -20,7 +20,7 @@ with attribution.
 
 There are already things we'd like to add to the project but haven't got around to that are 
 described in the project's
-[Issues](https://github.com/GrahamLea/Electricity-Sector-Lexicon/issues)
+[Issues](https://github.com/GrahamLea/Electricity-Sector-Field-Guide/issues)
 tab, so that's a good place to look if you're wanting ideas.
 
 But your ideas are probably good, too!
@@ -32,7 +32,7 @@ better than no contribution at all.
 
 To save you time in creating a submission that isn't actually something that's wanted, 
 reach out first via by creating an 
-[issue](https://github.com/GrahamLea/Electricity-Sector-Lexicon/issues) 
+[issue](https://github.com/GrahamLea/Electricity-Sector-Field-Guide/issues) 
 briefly describing what you'd like to contribute.
 
 

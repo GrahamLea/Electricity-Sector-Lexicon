@@ -6,7 +6,7 @@ _Keywords: dictionary, encyclopedia_
 
 > [!TIP]
 > Click here to open the
-> ## [Electricity Sector Field Guide](https://grahamlea.github.io/Electricity-Sector-Lexicon/)
+> ## [Electricity Sector Field Guide](https://grahamlea.github.io/Electricity-Sector-Field-Guide/)
 
 
 This project is an attempt to make a relatively comprehensive and
