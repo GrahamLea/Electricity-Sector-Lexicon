@@ -15,12 +15,36 @@
       links: [],
     },
     {
+      term: "Energy Management System",
+      synonyms: ["Power Flow Management (PFM)"],
+      abbreviations: [ "EMS" ],
+      definition: {
+        summary:
+        "Hardware and software that works together to manage the energy flows across some system. \
+         EMS is a rather generic term and may refer to something which manages the energy at a single property, \
+         like a house (using a [HEMS]) or a similar system for commercial or industrial applications, \
+         or across a very large and complex system like a distribution grid.",
+        more:
+        "Energy Management Systems may be able to provide a variety of different solutions depending on the \
+         needs of the property or system, such as minimising consumption, cost optimisation, [peak shaving], \
+         [energy arbitrage], [export limiting], [solar curtailment], and [grid balancing]. \
+         \n\
+         Energy Management System may also used to refer to a long-term business process for cataloging and \
+         evolving an organisation's energy usage and assets. \
+         EMS may also refer to Energy Management Software.",
+      },
+      links: [
+        { source: "Wikipedia", title: "Energy Management System", href: "https://en.wikipedia.org/wiki/Energy_management_system" },
+        { source: "Anthesis", title: "What is an Energy Management System", href: "https://www.anthesisgroup.com/au/insights/what-is-an-energy-management-system" },
+      ],
+    },
+    {
       term: "Home Energy Management System",
       abbreviations: [ "HEMS" ],
       definition: {
         summary:
-        "Hardware and software that works together to manage the energy flows in a residential property, \
-        typically optimising to minimise costs or maximise earnings.",
+        "[Energy Management System] managing the energy flows in a residential property, \
+        typically optimising to minimise costs, maximise earnings, and comply with distributor .",
         more:
         "The need for a HEMS arises from the installation of multiple [DER] on a site: [solar PV], [home batteries], \
          [EV chargers], and other [controllable load]s. \
@@ -28,21 +52,11 @@
          the site and respond accordingly, as more devices are added that aren't aware of each other, the need for a \
          centralised system to orchestrate the overall system behaviour becomes more necessary. \
          \n\
-         Home Energy Management Systems may be able to provide a variety of different solutions depending on the \
-         needs of the property, such as cost optimisation, [peak shaving], [energy arbitrage], [export limiting], \
-         and [solar curtailment]. \
-         \n\
-         Energy Management System (EMS) is a rather generic term and may refer to a technology system which manages \
-         the energy at a single property, like a HEMS, or a similar system for commercial or industrial applications, \
-         or even across a very large system like a distribution grid. \
-         Energy Management System may also used to refer to a long-term business process for cataloging and \
-         evolving an organisation's energy usage and assets. \
-         EMS can also refer to Energy Management Software.",
+         See [EMS] for a list of benefits that a HEMS can provide.",
       },
       links: [
         { source: "gridX", title: "Home Energy Management System (HEMS)", href: "https://www.gridx.ai/knowledge/home-energy-management-system-hems" },
         { source: "Schneider Electric", title: "Integrated Home Energy Management Systems", isVideo: true, href: "https://www.youtube.com/watch?v=363rzcRqV0g&t=22s" },
-        { source: "Wikipedia", title: "Energy Management System", href: "https://en.wikipedia.org/wiki/Energy_management_system" }
       ],
     },
   ]
