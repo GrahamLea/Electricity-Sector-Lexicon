@@ -214,9 +214,9 @@
                                         </a>
                                     </template>
                                     <template v-else>
-                                        <i class="bi bi-exclamation-diamond-fill"></i>️
                                         {{part}}
-                                        <i class="bi bi-exclamation-diamond-fill"></i>
+                                        <i class="bi bi-patch-question-fill"
+                                           :title="'\'' + termInLink(part) + '\' is not currently defined in the guide.'"></i>
                                     </template>
                                 </span>
                                 <span v-else v-html="part"/>
@@ -233,9 +233,9 @@
                                             </a>
                                         </template>
                                         <template v-else>
-                                            <i class="bi bi-exclamation-diamond-fill"></i>️
                                             {{part}}
-                                            <i class="bi bi-exclamation-diamond-fill"></i>
+                                            <i class="bi bi-patch-question-fill"
+                                               :title="'\'' + termInLink(part) + '\' is not currently defined in the guide.'"></i>
                                         </template>
                                     </span>
                                     <span v-else v-html="part"/>

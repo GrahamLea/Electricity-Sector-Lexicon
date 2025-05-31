@@ -106,11 +106,11 @@
     border-right: none;
 }
 
-.link .bi-exclamation-diamond-fill {
-    font-size: 70%;
-    background-color: #bb0000;
-    padding: 0.2em;
-    border-radius: 0.2em;
+.link .bi-patch-question-fill {
+    font-size: 15px;
+    color: #59ba91;
+    margin-left: -0.2em;
+    padding-right: 0.1em;
 }
 
 .entryStub {
