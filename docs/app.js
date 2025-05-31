@@ -205,7 +205,7 @@ function start() {
                 }
 
                 if (data.entries) {
-                    this.loadEntries(file, data, context, logger)
+                    await this.loadEntries(file, data, context, logger)
                 }
 
                 if (data.include) {
@@ -213,9 +213,9 @@ function start() {
                 }
             },
 
-            loadEntries(filename, data, context, logger) {
+            async loadEntries(filename, data, context, logger) {
                 logger.log(`loadEntries(${filename})`)
-                let newEntries = []
+                let newEntriesCount = 0
                 for (let entry of data.entries || []) {
                     if (!context.category) {
                         alert(`Data error: Context has no category while processing: ${entry.term}`)
@@ -225,10 +225,11 @@ function start() {
                     entry.category = context.category
                     entry.region = context.region
                     entry.tags = (entry.tags || []).concat(context.tags || [])
-                    newEntries.push(entry)
+                    this.entries.push(entry)
+                    newEntriesCount += 1
+                    await this.$nextTick();
                 }
-                this.entries.push(...newEntries)
-                logger.log(`loadEntries(${filename}): Loaded ${newEntries.length} entries`)
+                logger.log(`loadEntries(${filename}): Loaded ${newEntriesCount} entries`)
             },
 
             async loadIncludes(filename, data, context, logger) {
