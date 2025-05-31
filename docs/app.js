@@ -361,12 +361,11 @@ function start() {
             },
 
             onKeyPress(event) {
-                if (event.key !== "/") return;
-
-                if (document.activeElement === this.$refs.searchInput) return;
-
-                event.preventDefault();
-                this.$refs.searchField.focus();
+                if (event.key === "/" && !(event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)) {
+                    if (document.activeElement === this.$refs.searchField) return;
+                    event.preventDefault();
+                    this.$refs.searchField.focus();
+                }
             }
         },
 
