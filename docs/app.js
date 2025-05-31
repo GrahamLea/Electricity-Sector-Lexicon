@@ -122,7 +122,7 @@ function start() {
 
             entriesSorted() {
                 if (this.selectedTerm) {
-                    return [this.selectedEntry]
+                    return this.selectedEntry ? [this.selectedEntry] : []
                 }
 
                 if (this.hasSearchTerms) {
