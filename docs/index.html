@@ -167,7 +167,7 @@
                           id="entries"
                           name="entries">
 
-            <template v-for="(entry, index) in entriesSorted">
+            <template v-for="(entry, index) in entriesSorted" :key="entry.id">
 
                 <template v-if="!hasSearchTerms">
                     <header v-if="index === 0 || entriesSorted[index - 1].category !== entry.category"
@@ -178,7 +178,7 @@
                     </header>
                 </template>
 
-                <section class="entry card" :key="entry.id">
+                <section class="entry card">
                     <header class="card-header">
                         <section class="card-title">
                             <h2 class="term">
