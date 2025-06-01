@@ -34,7 +34,13 @@
 
     <nav class="navbar sticky-top bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1">Electricity Sector Field Guide</a>
+            <a class="navbar-brand mb-0 h1">
+                <i class="bi bi-journal" style="font-size: 130%; padding-right: 0.15em; position: relative;">
+                    <i class="bi bi-plug-fill" style="font-size: 70%; position: absolute; left: 0.275em; bottom: 0.1em;"></i>
+                </i>
+
+                Electricity Sector Field Guide
+            </a>
             <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
                 <!-- TODO: Fix unnecessary wrapping on small width window -->
                 <li class="nav-item col-6 col-lg-auto">
@@ -42,7 +48,9 @@
                        href="https://github.com/GrahamLea/Electricity-Sector-Field-Guide"
                        title="Contribute on GitHub"
                        target="_blank"
-                       rel="noopener">
+                       rel="noopener"
+                       style="margin-right: 0.5em;"
+                    >
                         <i class="bi-github" style="font-size: 150%"></i>
                     </a>
                 </li>
@@ -64,7 +72,7 @@
             </noscript>
         </header>
 
-        <aside id="feedback" class="alert alert-info float-end">
+        <aside id="feedback" class="alert alert-info float-end" v-if="!selectedTerm && !hasSearchTerms" >
             <i class="bi bi-chat-heart-fill float-end" style="font-size: 300%; margin-top: -1em;"></i>
             <p>Have you find this guide useful?</p>
             <p>
@@ -145,44 +153,42 @@
             </noscript>
         </div>
 
-        <template v-if="selectedTerm">
-            <div class="alert text-center"
-                 :class="selectedEntry ? 'alert-light' : 'alert-warning'"
-                 role="alert">
-                <span v-if="selectedEntry">
-                    Showing only '{{selectedEntry.term}}'
-                </span>
-                <span v-else>
-                    <i class="bi bi-exclamation-triangle-fill" style="color: gold;"></i>
-                    There is no entry for '{{selectedTerm}}'
-                </span>
-                <button type="button"
-                        class="btn btn-dark btn-sm"
-                        style="margin-left: 2em"
-                        @click="clearSelectedTerm"
-                >Show All
-                </button>
-            </div>
-        </template>
+        <div v-if="selectedTerm" class="alert text-center"
+             :class="selectedEntry ? 'alert-info' : 'alert-warning'"
+             role="alert">
+            <span v-if="selectedEntry">
+                Showing only '{{selectedEntry.term}}'
+            </span>
+            <span v-else>
+                <i class="bi bi-exclamation-triangle-fill" style="color: var(--bittersweet);"></i>
+                There is no entry for '{{selectedTerm}}'
+            </span>
+            <button type="button"
+                    class="btn btn-dark btn-sm"
+                    style="margin-left: 2em"
+                    @click="clearSelectedTerm"
+            >Show All
+            </button>
+        </div>
 
-        <template v-if="hasSearchTerms">
-            <div class="alert text-center alert-light"
-                 role="alert">
-                <span v-if="searchedEntries.length !== 0">
-                    Showing {{searchedEntries.length}} search result<span v-if="searchedEntries.length > 1">s</span>
-                    matching '{{searchText}}'
-                </span>
-                <span v-else>
-                    There are no search results for '{{searchText}}'
-                </span>
-                <button type="button"
-                        class="btn btn-dark btn-sm"
-                        style="margin-left: 2em"
-                        @click="clearSearchText"
-                >Show All
-                </button>
-            </div>
-        </template>
+        <div v-if="hasSearchTerms"
+             class="alert text-center"
+             :class="searchedEntries.length !== 0 ? 'alert-info' : 'alert-warning'"
+             role="alert">
+            <span v-if="searchedEntries.length !== 0">
+                Showing {{searchedEntries.length}} search result<span v-if="searchedEntries.length > 1">s</span>
+                matching '{{searchText}}'
+            </span>
+            <span v-else>
+                There are no search results for '{{searchText}}'
+            </span>
+            <button type="button"
+                    class="btn btn-dark btn-sm"
+                    style="margin-left: 2em"
+                    @click="clearSearchText"
+            >Show All
+            </button>
+        </div>
 
         <transition-group tag="div"
                           id="entries"
@@ -216,7 +222,7 @@
                                 Category: {{entry.category}}
                             </p>
                             <p class="badges">
-                                <span v-if="entry.region" class="region badge bg-warning text-dark">
+                                <span v-if="entry.region" class="region badge text-dark">
                                     Region: {{entry.region}}
                                 </span>
                                 <span v-for="tag in entry.tags || []" class="tag badge bg-info text-dark">{{tag}}</span>

@@ -1,3 +1,40 @@
+:root {
+    /* Palette: https://coolors.co/2b4150-6eacd8-78cebc-fff07c-ed6a5a */
+    --charcoal1: #2B4150;
+    --carolina-blue: #6EACD8;
+    --tiffany-blue: #78CEBC;
+    --maize: #FFF07C;
+    --citrine: #E0C600;
+    --bittersweet: #ED6A5A;
+    --bittersweet-translucent: #ED6A5A10;
+    --carolina-blue-rgb: 110, 172, 216;
+    --carolina-blue-bright-rgb: 142, 191, 225;
+    --richblack2-rgb: 21, 32, 40;
+    --bgdarkmask: #00000077;
+
+    --bs-body-bg: var(--charcoal1);
+    --bs-heading-color: var(--carolina-blue);
+    --bs-link-color-rgb: var(--carolina-blue-rgb);
+    --bs-link-hover-color-rgb: var(--carolina-blue-bright-rgb);
+
+    --bs-tertiary-bg-rgb: var(--richblack2-rgb);
+
+
+    --bs-info-bg-subtle: #00000033;
+    --bs-info-text-emphasis: var(--tiffany-blue);
+    --bs-info-border-subtle: var(--tiffany-blue);
+
+    --bs-warning-bg-subtle: #00000022;
+    --bs-warning-text-emphasis: var(--bittersweet);
+    --bs-warning-border-subtle: var(--bittersweet);
+}
+
+.navbar-brand {
+    --bs-navbar-brand-color: var(--maize);
+    --bs-navbar-brand-hover-color: var(--maize);
+    font-size: 1.5rem;
+}
+
 .navbar form {
     margin-left: 1em;
 }
@@ -57,7 +94,7 @@
 }
 
 .category-label {
-    opacity: 50%;
+    color: var(--tiffany-blue);
 }
 
 /*.card header {*/
@@ -72,6 +109,8 @@
 
 .card {
     margin: 2em 0;
+    --bs-card-bg: var(--bgdarkmask);
+    --bs-card-cap-bg: #ffffff06;
 }
 
 .main-abbreviation:before {
@@ -104,6 +143,10 @@
     margin-right: 1em;
 }
 
+.badge.region {
+    background-color: var(--citrine);
+}
+
 .links {
     font-size: smaller;
 }
@@ -123,7 +166,7 @@
 
 .link .bi-patch-question-fill {
     font-size: 15px;
-    color: #59ba91;
+    color: var(--tiffany-blue);
     margin-left: -0.2em;
     padding-right: 0.1em;
 }
