@@ -361,17 +361,26 @@ function start() {
                 console.log(`buildSearchTrie(): Done. ${this.searchTrie.leavesCount()} tokens included in ${Date.now() - start}ms`)
             },
 
-            onKeyPress(event) {
-                if (event.key === "/" && !(event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)) {
+            onKeyDown(event) {
+                const modifierActive= event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
+
+                if (event.key === "/" && !modifierActive) {
                     if (document.activeElement === this.$refs.searchField) return;
                     event.preventDefault();
                     this.$refs.searchField.focus();
+                }
+                if (event.key === "Escape" && !modifierActive) {
+                    if (document.activeElement === this.$refs.searchField) {
+                        event.preventDefault();
+                        this.clearSearchText()
+                        this.$refs.searchField.blur();
+                    }
                 }
             }
         },
 
         async mounted() {
-            window.addEventListener("keypress", this.onKeyPress);
+            window.addEventListener("keydown", this.onKeyDown);
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
             await this.loadData(DATA_ROOT)
@@ -381,7 +390,7 @@ function start() {
         },
 
         beforeUnmount() {
-            window.removeEventListener("keypress", this.onKeyPress);
+            window.removeEventListener("keydown", this.onKeyDown);
             window.removeEventListener("popstate", this.onUrlChange);
             window.removeEventListener("hashchange", this.onUrlChange);
         }
