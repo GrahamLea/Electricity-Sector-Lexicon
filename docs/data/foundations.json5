@@ -9,7 +9,7 @@
         summary:
         "A quantitative measure of the ability for something to perform \"work\", with work being the \
         transfer of energy from one object to another, or from one form of energy to another. \
-        Measured in joules ('J') or, more commonly in relation to electricity, [kilowatt-hours] (kWh). \
+        Measured in joules ('J') or, more commonly in relation to electricity, [kilowatt-hour]s (kWh). \
         Electrical energy is one form, being the energy due to electric fields, or stored in electric fields. \
         Electrical energy may exist as a static build up of charged particles, or a dynamic movement of charged \
         particles (i.e. [current]). \
@@ -25,7 +25,7 @@
         Energy is a measure of a quantity, while power is the rate at which energy is moving or performing work. \
         (Notice that the unit of power, the watt, is defined as joules per second, i.e. energy/time.) \
         Using kWh as a unit for energy frames it in terms of the amount of power it can deliver for a period of time: \
-        one kilowatt of power for 1 hour. (1kWh = 3600kJ) \n\
+        one kilowatt of power for 1 hour. (1kWh = 3,600kJ) \n\
         \
         Electrical energy is only one of many forms of energy relevant to the electricity industry. \
         Fossil-fueled power plants transfer chemical energy into heat energy, then into rotational kinetic energy, \
@@ -249,14 +249,41 @@
       ],
     },
     {
-      term: "Kilowatt-Hours",
+      term: "Watt",
+      abbreviations: [ "W" ],
+      definition: {
+        summary:
+        "The SI unit of [power], used to quantify the rate of [energy] transfer. Defined as 1 [joule] per second.",
+        more:
+        "See also the commonly used [kilowatt]."
+      },
+      isStub: true
+    },
+    {
+      term: "Kilowatt",
+      abbreviations: [ "kW" ],
+      usedVeryFrequently: true,
+      definition: {
+        summary:
+        "Very commonly used unit of electrical [power], particularly for consumer devices and [energy retailer] billing. \
+         Equal to 1,000 [watt]s.",
+        more:
+        "Not to be confused with [kilowatt-hour], a unit of [energy]."
+      },
+      isStub: true
+    },
+    {
+      term: "Kilowatt-Hour",
       abbreviations: [ "kWh" ],
       usedVeryFrequently: true,
       definition: {
         summary:
-        "The most common measure of electrical [energy], particularly for consumer devices and [energy retailer] billing.",
+        "Very commonly used unit of electrical [energy], particularly for consumer devices and [energy retailer] billing. \
+         Equal to 1,000 [watt]s of power used for one hour.",
         more:
-        ""
+        "A practical alternative to [joule], the SI unit of energy. (1kWh = 3,600kJ) \
+        \n\
+        Not to be confused with [kilowatt], a unit of [power]."
       },
       isStub: true
     },
