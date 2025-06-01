@@ -29,9 +29,6 @@
 <body>
 
 <main id="app">
-    <!-- TODO: Add a toast about the # of terms loaded -->
-    <!-- TODO: Add an ask to message me on Bluesky -->
-
     <nav class="navbar sticky-top bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand mb-0 h1">
@@ -305,6 +302,15 @@
                     style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
                     src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt=""></a></p>
         </footer>
+
+        <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x mb-3">
+            <div id="termsLoadedToast" ref="termsLoadedToast" class="toast w-auto" role="alert" aria-live="assertive"
+                 aria-atomic="true">
+                <div class="toast-header justify-content-center">
+                    <strong class="me-auto w-100 text-center">{{entries.length}} terms loaded</strong>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 

@@ -27,12 +27,19 @@
     --bs-warning-bg-subtle: #00000022;
     --bs-warning-text-emphasis: var(--bittersweet);
     --bs-warning-border-subtle: var(--bittersweet);
-}
 
-.navbar-brand {
-    --bs-navbar-brand-color: var(--maize);
-    --bs-navbar-brand-hover-color: var(--maize);
-    font-size: 1.5rem;
+    .navbar-brand {
+        --bs-navbar-brand-color: var(--maize);
+        --bs-navbar-brand-hover-color: var(--maize);
+        font-size: 1.5rem;
+    }
+
+    .toast {
+        --bs-toast-bg: #00000033;
+        --bs-toast-border-width: 2px;
+        --bs-toast-border-color: var(--tiffany-blue);
+        --bs-toast-header-color: var(--tiffany-blue);
+    }
 }
 
 .navbar form {
@@ -176,4 +183,9 @@
     opacity: 50%;
     margin-top: 1em;
     margin-bottom: 0;
+}
+
+.toast-header {
+    font-size: 120%;
+    padding: 1em 3em;
 }

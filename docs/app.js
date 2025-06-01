@@ -383,6 +383,7 @@ function start() {
             window.addEventListener("keydown", this.onKeyDown);
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
+            bootstrap.Toast.getOrCreateInstance(this.$refs.termsLoadedToast).show()
             await this.loadData(DATA_ROOT)
             this.buildSearchTrie()
             this.updateSelectedTermFromHash();
