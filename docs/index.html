@@ -38,24 +38,21 @@
 
                 Electricity Sector Field Guide
             </a>
-            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-                <!-- TODO: Fix unnecessary wrapping on small width window -->
-                <li class="nav-item col-6 col-lg-auto">
-                    <a class="nav-link py-2 px-0 px-lg-2"
-                       href="https://github.com/GrahamLea/Electricity-Sector-Field-Guide"
-                       title="Contribute on GitHub"
-                       target="_blank"
-                       rel="noopener"
-                       style="margin-right: 0.5em;"
-                    >
-                        <i class="bi-github" style="font-size: 150%"></i>
-                    </a>
-                </li>
-            </ul>
-            <!-- TODO: Filtering by region -->
-            <div class="d-flex" role="search">
-                <input v-model="searchText" class="form-control me-2" type="search" placeholder="Search"
-                       aria-label="Search" ref="searchField">
+            <div class="d-flex flex-row ms-auto align-items-center">
+                <div class="nav-item me-3" role="search">
+                    <!-- TODO: Filtering by region -->
+                    <input v-model="searchText" class="form-control" type="search" placeholder="Search"
+                           aria-label="Search" ref="searchField">
+                </div>
+                <a class="nav-link py-2 px-0 px-lg-2 "
+                   href="https://github.com/GrahamLea/Electricity-Sector-Field-Guide"
+                   title="Contribute on GitHub"
+                   target="_blank"
+                   rel="noopener"
+                   style="margin-right: 0.5em;"
+                >
+                    <i class="bi-github" style="font-size: 150%"></i>
+                </a>
             </div>
         </div>
     </nav>
