@@ -64,6 +64,20 @@
             </noscript>
         </header>
 
+        <aside id="feedback" class="alert alert-info float-end">
+            <i class="bi bi-chat-heart-fill float-end" style="font-size: 300%; margin-top: -1em;"></i>
+            <p>Have you find this guide useful?</p>
+            <p>
+                Please send me a quick message on
+                <a href="https://bsky.app/profile/evolvable.bsky.social" target="_blank">Bluesky</a> or
+                <a href="https://www.linkedin.com/in/grahamleasydney/" target="_blank">LinkedIn</a>
+                to let me know!
+            </p>
+        </aside>
+
+        <!-- Push the content out of the way of the feedback float on XS and SM layouts: -->
+        <div class="clearfix block d-md-none" style="height: 0px;"></div>
+
         <div class="alert text-center" v-if="entries.length === 0" role="alert" style="opacity: 50%;">
             Loading entries...
             <noscript>

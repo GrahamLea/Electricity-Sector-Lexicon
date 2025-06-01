@@ -10,6 +10,21 @@
     margin: 2em 0;
 }
 
+#feedback {
+    margin: 0 2em;
+    font-size: 80%;
+    width: 22em;
+    transform: rotate(6deg);
+    z-index: 1;
+
+    p {
+        margin: 0;
+        + p {
+            margin-top: 1em;
+        }
+    }
+}
+
 #entries {
     position: relative; /* Required to anchor the position: absolute used below during transitions */
 }
