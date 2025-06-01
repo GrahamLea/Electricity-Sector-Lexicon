@@ -66,7 +66,8 @@
             </noscript>
         </header>
 
-        <aside id="feedback" class="alert alert-info float-end" v-if="!selectedTerm && !hasSearchTerms" >
+        <!-- Float the feedback box right on Medium+ sizes and leave it inline aligned right on smaller. -->
+        <aside id="feedback" class="alert alert-info float-md-end ms-auto" v-if="!selectedTerm && !hasSearchTerms" >
             <i class="bi bi-chat-heart-fill float-end" style="font-size: 300%; margin-top: -1em;"></i>
             <p>Have you found this guide useful?</p>
             <p>
@@ -76,9 +77,6 @@
                 to let me know!
             </p>
         </aside>
-
-        <!-- Push the content out of the way of the feedback float on XS and SM layouts: -->
-        <div class="clearfix block d-md-none" style="height: 0px;"></div>
 
         <div class="alert text-center" v-if="entries.length === 0" role="alert" style="opacity: 50%;">
             Loading entries...

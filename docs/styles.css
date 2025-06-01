@@ -96,8 +96,11 @@
     margin-top: 5em;
 }
 
-#intro + .category-header {
-    margin-top: 0;
+@media (max-width: 768px) {
+    /* On small devices, this removes unnecessarily large margin from the first category header */
+    #entries > .category-header:first-child {
+        margin-top: 0;
+    }
 }
 
 .category-label {
