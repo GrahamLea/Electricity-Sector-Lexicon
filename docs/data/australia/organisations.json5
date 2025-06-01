@@ -15,7 +15,8 @@
         Established in 2005, AEMC produce the National Enery Rules, National Gas Rules, and \
         National Energy Retail Rules, in accordance with corresponding national laws and objectives set by \
         government. \
-        It also provides advice on energy issues to Australian and New Zealand governments via the [ECMC]. \n\
+        It also provides advice on energy issues to Australian and New Zealand governments via the \
+        [Energy and Climate Change Ministerial Council] (ECMC). \n\
         The rules created by AEMC are enforced by the [Australian Energy Regulator] (AER). \
         The markets are operated by the [Australian Energy Market Operator] (AEMO)."
       },
@@ -30,7 +31,7 @@
       definition: {
         summary:
         "The highest-level operator of most of Australia's electricity networks \
-        (including all those in the [National Energy Market]), Victoria's gas network, and energy-trading markets. \
+        (including all those in the [National Energy Market] (NEM)), Victoria's gas network, and energy-trading markets. \
         It also has responsibility to lead the long-term evolution of Australia’s energy system.",
         more:
         "Founded in 2009, AEMO are involved in real-time operation of networks, and help to manage planned and \
@@ -83,7 +84,7 @@
       definition: {
         summary:
         "An independent statutory body in Australia established to coordinate national energy security policies and \
-        reforms, and overseen by the Energy and Climate Change Ministerial Council.",
+        reforms, and overseen by the [Energy and Climate Change Ministerial Council] (ECMC).",
         more: ""
       },
       links: [

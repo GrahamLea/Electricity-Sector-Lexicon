@@ -6,12 +6,13 @@
       abbreviations: [ "ISP" ],
       definition: {
         summary:
-        "[AEMO]’s roadmap for the transition of the [NEM] power system over the next several decades.",
+        "[Australian Energy Market Operators]’s roadmap for the transition of the \
+        [National Electricity Market] (NEM) power system over the next several decades.",
         more:
         "AEMO says the ISP is \"a clear plan for essential infrastructure that will meet future energy needs.\" \
          It includes forecasts about coal plant closures and future energy [consumption] and [peak capacity], \
-         and recommendations for the future [generation] mix, [storage], [DER] (including [CER]), \
-         and [transmission network] investments, \
+         and recommendations for the future [generation] mix, [storage], [distributed energy resources] (DER) \
+         (including [CER]), and [transmission network] investments, \
          with a view to guide Australia's [electricity network] transition to [net zero] by 2050. \
          It assesses various scenarios and options with the aim of identifying the lowest-cost path to net zero, \
          which it calls the Optimal Development Path (ODP). \
@@ -21,9 +22,10 @@
          The details of what must be included in the plan are set out in the [AEMC]'s National Electricity Rules. \
          \n\
          The ISP estimates the cost of building the recommended generation, storage, and transmission. \
-         The 2024 edition estimated an annualised capital cost of $122 billion to 2050, resulting in a return of \
+         The 2024 edition estimated an upfront present value capital cost of AUD $142 billion to 2050. \
+         $16 billion of annualised transmission investment is forecast to return net market benefits of \
          $18.5 billion in avoided costs to consumers, and an additional $3.3 billion in emission reductions. \
-         It doesn't include the cost of CER investments or [distribution network] upgrades. "
+         The ISP doesn't include the cost of CER investments or [distribution network] upgrades. "
       },
       links: [
         { source: "AEMO", title: "Integrated System Plan (ISP)", href: "https://aemo.com.au/energy-systems/major-publications/integrated-system-plan-isp" },

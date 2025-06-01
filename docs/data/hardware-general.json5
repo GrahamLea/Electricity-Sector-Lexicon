@@ -7,7 +7,7 @@
       definition: {
         summary:
         "Electrical component which transfers [AC] electrical energy from one circuit to another without an electrical \
-         connection between the two, widely used to increase and decrease voltage.",
+         connection between the two. Widely used to increase and decrease voltage.",
         more:
         "A typical transformer works by having two coils of wire wrapped around a shared magnetic core. \
          As alternating current oscillates in one coil (the \"primary winding\"), this induces a change in the magnetic \
@@ -15,8 +15,8 @@
          This makes the [power] in one circuit (most of it, anyway) available in the other circuit. \
          \n\
          In [transmission network]s and [distribution network]s, transformers are used extensively to change [voltage]. \
-         This is most typically first increasing it (\"step-up\" transformer) near a generator in order to reduce the \
-         [current], which reduces [resistance] losses in long-distance transmission, then decreasing it \
+         This is most typically first increasing it (with a \"step-up\" transformer) near a generator in order to reduce the \
+         [current], which has the effect of reducing [resistance] losses in long-distance transmission, then decreasing it \
          (\"step-down\" transformer) to the voltages typically supplied to consumers.",
       },
       links: [
@@ -33,8 +33,9 @@
       synonyms: [ "Inverter" ],
       definition: {
         summary:
-        "Power electronic device that converts [DC] to [AC], very commonly found being used to convert the DC output \
-         of [solar PV] arrays or batteries to AC. Inverts the function of a [rectifier].",
+        "Power electronic device that converts [direct current] (DC) to [alternating current] (AC), \
+        very commonly found being used to convert the DC output of [solar PV] arrays or batteries to AC. \
+        Performs the opposite function of an [rectifier].",
         more:
         ""
       },
@@ -44,8 +45,9 @@
       term: "Rectifier",
       definition: {
         summary:
-        "Power electronic device that converts [AC] to [DC], required to store AC power from an [electric grid] into \
-         batteries, which charge and discharge using DC. Performs the opposite function of an [inverter].",
+        "Power electronic device that converts [alternating current] (AC) to [direct current] (DC), \
+         required to store AC power from an [electric grid] into batteries, which charge and discharge using DC. \
+         Performs the opposite function of an [inverter].",
         more:
         ""
       },
