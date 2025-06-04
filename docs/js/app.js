@@ -1,3 +1,7 @@
+import {IndentedLogger} from "./indented-logger.js";
+import {TrieNode} from "./trie-node.js";
+import {searchTokenScoresForEntry, WORD_SEPARATORS_REGEX} from "./search.js";
+
 const createApp = await import(
     location.origin === "https://grahamlea.github.io"
         ? "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
@@ -11,8 +15,6 @@ const searchLog = (...args) => {}
 // const searchLog = console.log
 
 const LINK_REGEX = /(\[.+?])/
-const WORD_SEPARATORS_REGEX = /[\s-]+/g
-const NON_WORD_CHARS_REGEX = /[^\w'_-]+/g
 
 
 function start() {
@@ -176,7 +178,7 @@ function start() {
 
         methods: {
             async loadData(file, context, logger) {
-                logger = logger || new IndentedLogger()
+                logger = logger || new IndentedLogger(LOG_DATA_LOADING)
                 logger.log(`loadData(${file})`)
 
                 context = context || { categoryHierarchy: "1" }
@@ -402,150 +404,6 @@ function start() {
 function deepCopy(objectOrArray) {
     return JSON.parse(JSON.stringify(objectOrArray))
 }
-
-
-function tokensIn(string) /* : Array<String> */ {
-    return string
-        .replaceAll(NON_WORD_CHARS_REGEX, " ")
-        .split(WORD_SEPARATORS_REGEX)
-        .map(s => s.toLowerCase())
-        .filter(s => !STOP_WORDS.has(s))
-}
-
-
-function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
-    const tokenScores = new Map();
-    const tokenListFns = [
-        () => tokensIn(entry.definition.more || ""),
-        () => tokensIn(entry.definition.summary || ""),
-        () => tokensIn(entry.category),
-        () => (entry.tags || []).flatMap(tokensIn),
-        () => tokensIn(entry.region || ""),
-        () => (entry.abbreviations || []).flatMap(tokensIn),
-        () => (entry.synonyms || []).flatMap(tokensIn),
-        () => tokensIn(entry.term)
-    ]
-    let score = 1
-    for (let tlf of tokenListFns) {
-        for (let t of tlf()) {
-            tokenScores.set(t, (tokenScores.get(t) || 0) + score)
-        }
-        score *= 100
-    }
-    return tokenScores
-}
-
-
-class IndentedLogger {
-    constructor(depth) {
-        this.depth = depth || 0
-    }
-
-    createDeeperInstance() {
-        return LOG_DATA_LOADING ? new IndentedLogger(this.depth + 1) : this
-    }
-
-    log(...args) {
-        if (LOG_DATA_LOADING) {
-            console.log(' '.repeat(this.depth * 4), ...args)
-        }
-    }
-}
-
-
-class TrieNode {
-    constructor() {
-        this.branches = {}
-        this.leaves = []
-    }
-
-    insert(key, value, score) {
-        if (key.length === 0) {
-            this.leaves.push([value, score])
-        } else {
-            let b = this.branches[key[0]]
-            if (!b) {
-                b = this.branches[key[0]] = new TrieNode()
-            }
-            b.insert(key.slice(1), value, score)
-        }
-    }
-
-    getAll(key, result) {
-        if (!result) {
-            result = {}
-        }
-        if (key.length !== 0) { // Not at the end of the word yet
-            if (this.branches[key[0]]) {
-                this.branches[key[0]].getAll(key.slice(1), result)
-            }
-        } else { // Reached the end of the search word
-            for (const [value, score] of this.leaves) {
-                result[value] = Math.max(result[value] || 0, score)
-            }
-            for (const trie of Object.values(this.branches)) {
-                trie.getAll(key, result)
-            }
-        }
-        return result
-    }
-
-    leavesCount() {
-        return this.leaves.length
-            + Object.values(this.branches).reduce((total, node) => total + node.leavesCount(), 0)
-    }
-}
-
-
-const STOP_WORDS = new Set([
-    "",
-    "a",
-    "all",
-    "also",
-    "an",
-    "and",
-    "are",
-    "as",
-    "at",
-    "be",
-    "by",
-    "but",
-    "can",
-    "does",
-    "for",
-    "from",
-    "have",
-    "if",
-    "in",
-    "is",
-    "it",
-    "just",
-    "like",
-    "may",
-    "may",
-    "might",
-    "must",
-    "not",
-    "of",
-    "on",
-    "only",
-    "or",
-    "s",
-    "so",
-    "some",
-    "such",
-    "that",
-    "the",
-    "their",
-    "then",
-    "they",
-    "those",
-    "to",
-    "when",
-    "which",
-    "while",
-    "will",
-])
 
 
 start()
