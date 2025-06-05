@@ -23,10 +23,11 @@ function start() {
         data() {
             return {
                 entries: [],
-                categoryHierarchies: new Map(),
                 selectedTerm: null,
                 searchText: "",
-                searchTrie: new TrieNode()
+                searchTrie: new TrieNode(),
+                // A map of Category labels (e.g. "Hardware / General") to hierarchical order indexes (e.g. "03.02")
+                categoryHierarchies: new Map()
             }
         },
 
@@ -187,7 +188,7 @@ function start() {
                 logger = logger || new IndentedLogger(LOG_DATA_LOADING)
                 logger.log(`loadData(${file})`)
 
-                context = context || { categoryHierarchy: "1" }
+                context = context || { categoryHierarchy: "" }
 
                 const response = await fetch(file);
                 if (!response.ok) {
@@ -255,7 +256,7 @@ function start() {
                     }
                     const childLogger = logger.createDeeperInstance()
                     const childContext = deepCopy(context)
-                    childContext.categoryHierarchy = childContext.categoryHierarchy + "." + n
+                    childContext.categoryHierarchy += (childContext.categoryHierarchy ? "." : "") + `${n}`.padStart(2, "0")
                     importPromises.push(this.loadData(importFile, childContext, childLogger))
                 }
                 await Promise.all(importPromises).catch(reason => {
