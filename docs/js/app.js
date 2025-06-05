@@ -122,21 +122,15 @@ function start() {
                 return map
             },
 
-            entriesSorted() {
-                if (this.selectedTerm) {
-                    return this.selectedEntry ? [this.selectedEntry] : []
-                }
-
-                if (this.hasSearchTerms) {
-                    return this.searchedEntries
-                }
-
-                const categoryOrder = Array(...this.categoryHierarchies.entries())
+            categoriesSorted() {
+                return Array(...this.categoryHierarchies.entries())
                     .sort((kvA, kvB) => kvA[1].localeCompare(kvB[1]))
                     .map(kv => kv[0])
+            },
 
+            entriesSortedByCategory() {
                 const map = new Map()
-                for (const c of categoryOrder) {
+                for (const c of this.categoriesSorted) {
                     map.set(c, [])
                 }
                 for (const d of this.entries) {
@@ -147,6 +141,18 @@ function start() {
                     result.push(...entries)
                 }
                 return result
+            },
+
+            entriesSorted() {
+                if (this.selectedTerm) {
+                    return this.selectedEntry ? [this.selectedEntry] : []
+                }
+
+                if (this.hasSearchTerms) {
+                    return this.searchedEntries
+                }
+
+                return this.entriesSortedByCategory
             }
         },
 
