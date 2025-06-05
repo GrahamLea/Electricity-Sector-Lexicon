@@ -1,6 +1,7 @@
-import {IndentedLogger} from "./indented-logger.js";
 import {TrieNode} from "./trie-node.js";
 import {searchTokenScoresForEntry, WORD_SEPARATORS_REGEX} from "./search.js";
+import {loadData} from "./load-data.js";
+import {termId} from "./terms.js";
 
 const createApp = await import(
     location.origin === "https://grahamlea.github.io"
@@ -8,7 +9,6 @@ const createApp = await import(
         : "https://unpkg.com/vue@3/dist/vue.esm-browser.js")
     .then(module => { return module.createApp })
 
-const LOG_DATA_LOADING = false
 const DATA_ROOT = "data/index.json5"
 
 const searchLog = (...args) => {}
@@ -184,95 +184,19 @@ function start() {
         },
 
         methods: {
-            async loadData(file, context, logger) {
-                logger = logger || new IndentedLogger(LOG_DATA_LOADING)
-                logger.log(`loadData(${file})`)
-
-                context = context || { categoryHierarchy: "" }
-
-                const response = await fetch(file);
-                if (!response.ok) {
-                    alert(`Error loading data from ${file}: ${response.statusText} (${response.status})`)
-                    return
-                }
-                let text = await response.text();
-                const data = JSON5.parse(text)
-
-                if (data.category) {
-                    if (context.category) {
-                        context.category = context.category + " / " + data.category
-                    } else {
-                        context.category = data.category
-                    }
-                    this.categoryHierarchies.set(context.category, context.categoryHierarchy)
-                }
-                if (data.region) {
-                    context.region = data.region
-                }
-                if (data.tags) {
-                    context.tags = (context.tags || []).concat(data.tags)
-                }
-
-                if (data.entries) {
-                    await this.loadEntries(file, data, context, logger)
-                }
-
-                if (data.include) {
-                    await this.loadIncludes(file, data, context, logger)
-                }
+            async addCategory(category, categoryHierarchy) {
+                this.categoryHierarchies.set(category, categoryHierarchy)
             },
-
-            async loadEntries(filename, data, context, logger) {
-                logger.log(`loadEntries(${filename})`)
-                let newEntriesCount = 0
-                for (let entry of data.entries || []) {
-                    if (!context.category) {
-                        alert(`Data error: Context has no category while processing: ${entry.term}`)
-                        continue
-                    }
-                    entry.id = this.termId(entry.term)
-                    entry.category = context.category
-                    entry.region = context.region
-                    entry.tags = (entry.tags || []).concat(context.tags || [])
-                    this.entries.push(entry)
-                    newEntriesCount += 1
-                    await this.$nextTick();
-                }
-                logger.log(`loadEntries(${filename}): Loaded ${newEntriesCount} entries`)
-            },
-
-            async loadIncludes(filename, data, context, logger) {
-                logger.log(`loadIncludes(${filename})`)
-                let directory = filename.substring(0, filename.lastIndexOf("/"));
-                const importPromises = []
-                let n = 0
-                for (let importLocation of data.include || []) {
-                    n++
-                    let importFile
-                    if (importLocation.endsWith("/")) {
-                        importFile = `${directory}/${importLocation}index.json5`
-                    } else {
-                        importFile = `${directory}/${importLocation}.json5`
-                    }
-                    const childLogger = logger.createDeeperInstance()
-                    const childContext = deepCopy(context)
-                    childContext.categoryHierarchy += (childContext.categoryHierarchy ? "." : "") + `${n}`.padStart(2, "0")
-                    importPromises.push(this.loadData(importFile, childContext, childLogger))
-                }
-                await Promise.all(importPromises).catch(reason => {
-                    console.log("Error while loading data: ", reason)
-                    alert("Error while loading data: " + reason)
-                })
-                logger.log(`loadIncludes(${filename}): Done`)
+            async addEntry(entry) {
+                this.entries.push(entry)
+                await this.$nextTick();
             },
 
             textSections(text) {
                 return text.split(LINK_REGEX)
             },
 
-            termId(term) {
-                return term.toLowerCase().replaceAll(WORD_SEPARATORS_REGEX, "-")
-            },
+            termId: termId,
 
             isLink(text) {
                 return text.match(LINK_REGEX)?.[0] === text
@@ -393,7 +317,7 @@ function start() {
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
             bootstrap.Toast.getOrCreateInstance(this.$refs.termsLoadedToast).show()
-            await this.loadData(DATA_ROOT)
+            await loadData(DATA_ROOT, this.addCategory, this.addEntry)
             this.buildSearchTrie()
             this.updateSelectedTermFromHash();
             this.updateSearchTermFromQuery();
@@ -405,11 +329,6 @@ function start() {
             window.removeEventListener("hashchange", this.onUrlChange);
         }
     }).mount('#app')
-}
-
-
-function deepCopy(objectOrArray) {
-    return JSON.parse(JSON.stringify(objectOrArray))
 }
 
 
