@@ -15,7 +15,6 @@ export function searchTokenScoresForEntry(entry) /* : Map<String, number> */ {
         () => tokensIn(entry.definition.more || ""),
         () => tokensIn(entry.definition.summary || ""),
         () => tokensIn(entry.category),
-        () => (entry.tags || []).flatMap(tokensIn),
         () => tokensIn(entry.region || ""),
         () => (entry.abbreviations || []).flatMap(tokensIn),
         () => (entry.synonyms || []).flatMap(tokensIn),

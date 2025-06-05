@@ -28,9 +28,6 @@ export async function loadData(file, addCategory, addEntry, context, logger) {
     if (data.region) {
         context.region = data.region
     }
-    if (data.tags) {
-        context.tags = (context.tags || []).concat(data.tags)
-    }
 
     if (data.entries) {
         await loadEntries(file, data, addCategory, addEntry, context, logger)
@@ -53,7 +50,6 @@ async function loadEntries(filename, data, addCategory, addEntry, context, logge
         entry.id = termId(entry.term)
         entry.category = context.category
         entry.region = context.region
-        entry.tags = (entry.tags || []).concat(context.tags || [])
         await addEntry(entry)
         newEntriesCount += 1
     }
