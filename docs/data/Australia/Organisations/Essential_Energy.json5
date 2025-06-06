@@ -1,0 +1,14 @@
+{
+  term: "Essential Energy",
+  definition: {
+    summary: "A [DNSP] serving almost all the geography of New South Wales (NSW) outside the major cities of Sydney,         Newcastle, Wollongong, Gosford, and their surrounds.",
+    more: "Covers all of NSW not coverd by [Ausgrid], [Endeavour Energy], and [Evoenergy].",
+  },
+  links: [
+    {
+      source: "Essential Energy",
+      title: "Essential Energy",
+      href: "https://www.essentialenergy.com.au/",
+    },
+  ],
+}

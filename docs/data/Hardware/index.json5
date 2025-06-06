@@ -1,0 +1,9 @@
+{
+  category: "Hardware",
+  imports: [
+    "General/",
+    "Generation/",
+    "Loads/",
+    "Storage/",
+  ],
+}

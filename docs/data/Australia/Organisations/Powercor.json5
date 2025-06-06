@@ -1,0 +1,13 @@
+{
+  term: "Powercor",
+  definition: {
+    summary: "A [DNSP] in Victoria (VIC), covering the western suburbs of Melbourne and all of western regional Victoria.",
+  },
+  links: [
+    {
+      source: "Powercor",
+      title: "Powercor",
+      href: "https://www.powercor.com.au/",
+    },
+  ],
+}

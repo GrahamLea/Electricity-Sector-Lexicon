@@ -1,0 +1,22 @@
+{
+  term: "Australian Energy Regulator",
+  abbreviations: [
+    "AER",
+  ],
+  definition: {
+    summary: "The independent regulator of the energy (electricity and gas) markets across most of Australia.",
+    more: "The AER regulates energy networks, wholesale markets, and retail markets, across all of Australia, with the         exception of Western Australia (WA).         They ensure that market participants adhere to national energy legislation and rules created by the         [Australian Energy Market Commission] (AEMC).         They also set the maximum revenue permitted by the natural monopolies in the energy industry.         ",
+  },
+  links: [
+    {
+      source: "AER",
+      title: "Our Role",
+      href: "https://www.aer.gov.au/about/aer/our-role#markets-we-oversee",
+    },
+    {
+      source: "Wikipedia",
+      title: "AER",
+      href: "https://en.wikipedia.org/wiki/Australian_Energy_Regulator",
+    },
+  ],
+}

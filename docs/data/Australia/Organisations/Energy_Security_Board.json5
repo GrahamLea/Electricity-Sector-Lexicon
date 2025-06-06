@@ -1,0 +1,18 @@
+{
+  term: "Energy Security Board",
+  abbreviations: [
+    "ESB",
+  ],
+  isStub: true,
+  definition: {
+    summary: "An independent statutory body in Australia established to coordinate national energy security policies and         reforms, and overseen by the [Energy and Climate Change Ministerial Council] (ECMC).",
+    more: "",
+  },
+  links: [
+    {
+      source: "energy.gov.au",
+      title: "Energy and Climate Change Ministerial Council",
+      href: "https://www.energy.gov.au/energy-and-climate-change-ministerial-council",
+    },
+  ],
+}

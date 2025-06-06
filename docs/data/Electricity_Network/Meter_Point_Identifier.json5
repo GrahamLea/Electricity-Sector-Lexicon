@@ -1,0 +1,16 @@
+{
+  term: "Meter Point Identifier",
+  synonyms: [
+    "Meter Point Administration Number (MPAN)",
+    "National Meter Identifier (NMI)",
+    "Metering Point Number (MPN)",
+    "Point de R\u00e9f\u00e9rence de Mesure (PRM)",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "Unique identifier for a connection point where a meter attaches an energy consumer to an [electric grid],          typically used by [energy retailer]s and other industry parties to identify a property.          Some networks may only use [Meter Identifier]s.",
+    more: "",
+  },
+  isStub: true,
+  links: [],
+}

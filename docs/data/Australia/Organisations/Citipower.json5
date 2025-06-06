@@ -1,0 +1,13 @@
+{
+  term: "Citipower",
+  definition: {
+    summary: "A [DNSP] in Victoria (VIC) serving the CBD and inner suburbs of Melbourne.",
+  },
+  links: [
+    {
+      source: "Citipower / Powercor",
+      title: "Citipower / Powercor",
+      href: "https://www.powercor.com.au/",
+    },
+  ],
+}

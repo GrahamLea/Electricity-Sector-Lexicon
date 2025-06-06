@@ -1,0 +1,15 @@
+{
+  term: "Amperes",
+  synonyms: [
+    "Amps",
+  ],
+  abbreviations: [
+    "A",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "SI unit for [electric current]. The rate at which electric charges are moving past a point.",
+    more: "",
+  },
+  isStub: true,
+}

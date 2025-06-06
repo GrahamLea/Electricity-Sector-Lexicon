@@ -1,0 +1,14 @@
+{
+  term: "Ergon Energy",
+  definition: {
+    summary: "A [DNSP] serving almost all the geography of Queensland (QLD) outside the major cities of the south-east.",
+    more: "Covers distribution across most of Queensland not covered by [Energex], as well as operating isolated power         stations in remote communities including the Torres Strait Islands.",
+  },
+  links: [
+    {
+      source: "Ergon Energy",
+      title: "Ergon Energy",
+      href: "https://www.ergon.com.au/",
+    },
+  ],
+}

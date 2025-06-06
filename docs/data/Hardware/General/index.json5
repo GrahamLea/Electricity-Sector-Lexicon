@@ -1,0 +1,8 @@
+{
+  category: "General",
+  imports: [
+    "Transformer",
+    "Power_Inverter",
+    "Rectifier",
+  ],
+}

@@ -1,0 +1,16 @@
+{
+  term: "Pumped Hydro",
+  synonyms: [
+    "Pumped-storage hydroelectricity",
+    "Pumped hydroelectric energy storage",
+  ],
+  abbreviations: [
+    "PSH",
+    "PHES",
+  ],
+  definition: {
+    summary: "[Energy] storage approach that uses electric pumps to raise water to a higher elevation,          (converting electrical energy into gravitational potential energy)          then later generating electric power using [hydroelectricity].",
+    more: "",
+  },
+  isStub: true,
+}

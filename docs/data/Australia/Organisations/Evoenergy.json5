@@ -1,0 +1,14 @@
+{
+  term: "Evoenergy",
+  definition: {
+    summary: "The sole [DNSP] serving the Australian Capital Territory (ACT).",
+    more: "Renamed from ActewAGL in 2018.",
+  },
+  links: [
+    {
+      source: "Evoenergy",
+      title: "Evoenergy",
+      href: "https://www.evoenergy.com.au/",
+    },
+  ],
+}

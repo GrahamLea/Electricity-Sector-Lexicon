@@ -1,0 +1,13 @@
+{
+  term: "Ausgrid",
+  definition: {
+    summary: "A [DNSP] in New South Wales (NSW) serving the most coastal parts of Sydney, up to Newcastle and the Upper Hunter.",
+  },
+  links: [
+    {
+      source: "Ausgrid",
+      title: "Ausgrid",
+      href: "https://www.ausgrid.com.au/",
+    },
+  ],
+}

@@ -1,0 +1,16 @@
+{
+  term: "Power and Water Corporation",
+  abbreviations: [
+    "PWC",
+  ],
+  definition: {
+    summary: "The sole [TNSP] and [DNSP] in the Northern Territory (NT).",
+  },
+  links: [
+    {
+      source: "Power and Water Corporation",
+      title: "Power and Water Corporation",
+      href: "https://www.powerwater.com.au/",
+    },
+  ],
+}

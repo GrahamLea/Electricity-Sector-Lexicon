@@ -1,0 +1,25 @@
+{
+  term: "Energy Management System",
+  synonyms: [
+    "Power Flow Management (PFM)",
+  ],
+  abbreviations: [
+    "EMS",
+  ],
+  definition: {
+    summary: "Hardware and software that works together to manage the energy flows across some system.          EMS is a rather generic term and may refer to something which manages the energy at a single property,          like a house (using a [HEMS]) or a similar system for commercial or industrial applications,          or across a very large and complex system like a distribution grid.",
+    more: "Energy Management Systems may be able to provide a variety of different solutions depending on the          needs of the property or system, such as minimising consumption, cost optimisation, [peak shaving],          [energy arbitrage], [export limiting], [solar curtailment], and [grid balancing].          \n         Energy Management System may also used to refer to a long-term business process for cataloging and          evolving an organisation's energy usage and assets.          EMS may also refer to Energy Management Software.",
+  },
+  links: [
+    {
+      source: "Wikipedia",
+      title: "Energy Management System",
+      href: "https://en.wikipedia.org/wiki/Energy_management_system",
+    },
+    {
+      source: "Anthesis",
+      title: "What is an Energy Management System",
+      href: "https://www.anthesisgroup.com/au/insights/what-is-an-energy-management-system",
+    },
+  ],
+}

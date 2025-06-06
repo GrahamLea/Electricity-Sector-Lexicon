@@ -1,0 +1,40 @@
+{
+  term: "Distributed Energy Resources",
+  abbreviations: [
+    "DER",
+  ],
+  synonyms: [
+    "Distributed Energy",
+    "Decentralised Energy",
+    "Distributed Generation",
+    "Embedded Generation",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "Electrical hardware that provides energy production, consumption, or storage at a low magnitude          compared to traditional grid-scale technology like large power plants.          The resources are \"distributed\" because they exist across a wide area within a network, in contrast to larger          resources which are in a small number of locations.",
+    more: "The category of DER can contain a wide variety and scale of devices.          At the lower end of the DER spectrum are [Consumer Energy Resources] (CER).          DER also includes non-consumer-scale technologies that have high cardinality and are geographically distributed,          such as small-scale [Commercial & Industrial] solar or wind farms, [Community Batteries],          small hydropower stations or [pumped hydro].          Some uses of the term DER may also include [controllable loads] or [smart devices].          In some contexts, DER may be used to only refer to CER, not larger distributed resources.",
+  },
+  links: [
+    {
+      source: "Wikipedia",
+      title: "Distributed generation",
+      href: "https://en.wikipedia.org/wiki/Distributed_generation",
+    },
+    {
+      source: "IEA",
+      title: "Unlocking the Potential of Distributed Energy Resources - Executive Summary",
+      href: "https://www.iea.org/reports/unlocking-the-potential-of-distributed-energy-resources/executive-summary",
+    },
+    {
+      source: "AEMC",
+      title: "What Is Embedded Generation? Infographic",
+      href: "https://www.aemc.gov.au/sites/default/files/content//ERC0191-AEMC-Embedded-Generation-Infographic_FINAL.PDF",
+    },
+    {
+      source: "ARENA",
+      title: "What are Distributed Energy Resources?",
+      isVideo: true,
+      href: "https://www.youtube.com/watch?v=TlecJcCJ7zg",
+    },
+  ],
+}

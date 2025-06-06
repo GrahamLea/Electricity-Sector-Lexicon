@@ -1,10 +1,10 @@
 {
-  include: [
-    "foundations",
-    "network",
-    "hardware",
-    "technology",
-    "energy-management",
-    "australia/"
+  imports: [
+    "Foundations/",
+    "Electricity_Network/",
+    "Hardware/",
+    "Technology/",
+    "Energy_Management/",
+    "Australia/"
   ]
 }

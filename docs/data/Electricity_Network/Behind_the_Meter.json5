@@ -1,0 +1,12 @@
+{
+  term: "Behind the Meter",
+  abbreviations: [
+    "BTM",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "Categorisation of energy assets that reside, and energy flows that occur, within the premises of customers          of an energy retailer. Contrasts with [Front of Meter].",
+    more: "",
+  },
+  isStub: true,
+}

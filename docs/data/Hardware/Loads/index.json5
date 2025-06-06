@@ -1,0 +1,6 @@
+{
+  category: "Loads",
+  imports: [
+    "Electric_Vehicle",
+  ],
+}

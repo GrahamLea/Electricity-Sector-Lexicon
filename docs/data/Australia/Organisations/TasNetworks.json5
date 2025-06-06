@@ -1,0 +1,16 @@
+{
+  term: "TasNetworks",
+  synonyms: [
+    "Tasmanian Networks",
+  ],
+  definition: {
+    summary: "The sole [TNSP] and [DNSP] in Tasmania.",
+  },
+  links: [
+    {
+      source: "TasNetworks",
+      title: "TasNetworks",
+      href: "https://www.tasnetworks.com.au/",
+    },
+  ],
+}

@@ -1,0 +1,12 @@
+{
+  term: "Power Station",
+  synonyms: [
+    "Power Plant",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "An industrial facility for generating electric [power].          Typically the dominant supplier of power to [electric grid]s, though now sometimes, in some places,          supplementing [consumer energy resources] or [grid-scale storage].",
+    more: "",
+  },
+  isStub: true,
+}

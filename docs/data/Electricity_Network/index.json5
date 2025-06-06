@@ -1,0 +1,19 @@
+{
+  category: "Electricity Network",
+  imports: [
+    "Electrical_Grid",
+    "Power_Station",
+    "Transmission_Network",
+    "Distribution_Network",
+    "Distribution_System_Operator",
+    "Transmission_System_Operator",
+    "Energy_Retailer",
+    "Behind_the_Meter",
+    "Front_of_the_Meter",
+    "Consumer_Energy_Resources",
+    "Distributed_Energy_Resources",
+    "Virtual_Power_Plant",
+    "Meter_Point_Identifier",
+    "Meter_Identifier",
+  ],
+}

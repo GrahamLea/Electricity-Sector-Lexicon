@@ -1,0 +1,9 @@
+{
+  term: "Load",
+  usedVeryFrequently: true,
+  definition: {
+    summary: "A single device that uses electric [power] (\"a load\" / \"loads\"),          or the collective demand on an electric system (\"the load\").",
+    more: "",
+  },
+  isStub: true,
+}

@@ -1,0 +1,43 @@
+{
+  term: "Distribution System Operator",
+  synonyms: [
+    "Distribution Company",
+    "Distribution Network Operator",
+    "Distribution Network Owner",
+    "Distribution Network Service Provider",
+    "Distribution Utility",
+    "Electric Distribution Company",
+    "Local Distribution Company",
+  ],
+  abbreviations: [
+    "DSO",
+    "DISCOM",
+    "DNO",
+    "DNSP",
+    "EDC",
+    "LDC",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "An operator (and possibly owner) of an electricity [distribution network].",
+    more: "In some regions, a DSO may also act as a [Transmission System Operator] (TSO) and/or an [energy retailer].          Not all of the above terms are exactly the same concept, though they all refer to ownership, control, and/or          operation of the distribution part of an [electrical grid].          In some regions, the ownership of a distribution network and the operation of it may be split between multiple organisations.",
+  },
+  links: [
+    {
+      source: "Wikipedia",
+      title: "Distribution network operator",
+      href: "https://en.wikipedia.org/wiki/Distribution_network_operator",
+    },
+    {
+      source: "gridX",
+      title: "Grid Operators",
+      href: "https://www.gridx.ai/knowledge/what-is-a-grid-operator",
+    },
+    {
+      source: "Alectra",
+      title: "Distribution System Operators",
+      isVideo: true,
+      href: "https://www.youtube.com/watch?v=2lATLGODbmg",
+    },
+  ],
+}

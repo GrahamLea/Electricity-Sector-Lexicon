@@ -1,0 +1,14 @@
+{
+  term: "Meter Identifier",
+  synonyms: [
+    "Meter Number",
+    "Meter Serial Number (MSN)",
+  ],
+  usedVeryFrequently: true,
+  definition: {
+    summary: "Unique identifier for a physical meter that attaches an energy consumer to an [electric grid].          Sometimes used by [energy retailer]s and other industry parties as a proxy for identifying a property,          as if it were a [Meter Point Identifier], even though it could change due only to a hardware swap.",
+    more: "",
+  },
+  isStub: true,
+  links: [],
+}

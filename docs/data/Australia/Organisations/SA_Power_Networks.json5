@@ -1,0 +1,16 @@
+{
+  term: "SA Power Networks",
+  abbreviations: [
+    "SAPN",
+  ],
+  definition: {
+    summary: "The sole [DNSP] covering South Australia (SA), though the network only covers south east coastal areas.",
+  },
+  links: [
+    {
+      source: "SA Power Networks",
+      title: "SA Power Networks",
+      href: "https://www.sapowernetworks.com.au/",
+    },
+  ],
+}

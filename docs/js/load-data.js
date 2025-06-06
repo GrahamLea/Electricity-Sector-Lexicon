@@ -29,8 +29,8 @@ export async function loadData(file, addCategory, addEntry, context, logger) {
         context.region = data.region
     }
 
-    if (data.entries) {
-        await loadEntries(file, data, addCategory, addEntry, context, logger)
+    if (data.term) {
+        await loadTerm(file, data, addCategory, addEntry, context, logger)
     }
 
     if (data.include) {
@@ -39,21 +39,17 @@ export async function loadData(file, addCategory, addEntry, context, logger) {
 }
 
 
-async function loadEntries(filename, data, addCategory, addEntry, context, logger) {
-    logger.log(`loadEntries(${filename})`)
-    let newEntriesCount = 0
-    for (let entry of data.entries || []) {
-        if (!context.category) {
-            alert(`Data error: Context has no category while processing: ${entry.term}`)
-            continue
-        }
-        entry.id = termId(entry.term)
-        entry.category = context.category
-        entry.region = context.region
-        await addEntry(entry)
-        newEntriesCount += 1
+async function loadTerm(filename, entry, addCategory, addEntry, context, logger) {
+    logger.log(`loadTerm(${filename})`)
+    if (!context.category) {
+        alert(`Data error: Context has no category while processing: ${entry.term}`)
+        return
     }
-    logger.log(`loadEntries(${filename}): Loaded ${newEntriesCount} entries`)
+    entry.id = termId(entry.term)
+    entry.category = context.category
+    entry.region = context.region
+    await addEntry(entry)
+    logger.log(`loadTerm(${filename}): Loaded '${entry.term}'`)
 }
 
 

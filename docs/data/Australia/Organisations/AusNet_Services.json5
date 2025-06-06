@@ -1,0 +1,14 @@
+{
+  term: "AusNet Services",
+  definition: {
+    summary: "The sole [TNSP] in Victoria (VIC), and also a [DNSP] serving Melbourne's outer north and east suburbs and         all of eastern regional Victoria.",
+    more: "AusNet also operates a gas distribution network in Victoria.",
+  },
+  links: [
+    {
+      source: "AusNet Services",
+      title: "AusNet Services",
+      href: "https://www.ausnetservices.com.au/",
+    },
+  ],
+}

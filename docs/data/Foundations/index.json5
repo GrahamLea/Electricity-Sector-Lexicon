@@ -1,0 +1,18 @@
+{
+  category: "Foundations",
+  imports: [
+    "Energy",
+    "Power",
+    "Load",
+    "Current",
+    "Alternating_Current",
+    "Direct_Current",
+    "Voltage",
+    "Watt",
+    "Kilowatt",
+    "Kilowatt-Hour",
+    "Volts",
+    "Amperes",
+    "Reactive_Power",
+  ],
+}
