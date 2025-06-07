@@ -192,3 +192,7 @@
     font-size: 120%;
     padding: 1em 3em;
 }
+
+[v-cloak] {
+    display: none;
+}

@@ -64,12 +64,17 @@
                 <span class="d-inline d-md-none"><br></span>
                 for industry newcomers.</b>
             <noscript>
-                <p style="margin-top: 1em;"><strong>This page requires JavaScript. Please enable it to continue.</strong></p>
+                <p class="alert alert-warning text-center"
+                   role="alert"
+                   style="margin-top: 1em;">
+                    <i class="bi bi-exclamation-triangle-fill" style="color: var(--bittersweet);"></i>
+                    <strong>This page requires JavaScript. Please enable it to continue.</strong>
+                </p>
             </noscript>
         </header>
 
         <!-- Float the feedback box right on Medium+ sizes and leave it inline aligned right on smaller. -->
-        <aside id="feedback" class="alert alert-info float-md-end ms-auto" v-if="!selectedTerm && !hasSearchTerms" >
+        <aside id="feedback" v-cloak class="alert alert-info float-md-end ms-auto" v-if="!selectedTerm && !hasSearchTerms">
             <i class="bi bi-chat-heart-fill float-end" style="font-size: 300%; margin-top: -1em;"></i>
             <p>Have you found this guide useful?</p>
             <p>
@@ -80,10 +85,15 @@
             </p>
         </aside>
 
-        <div class="alert text-center" v-if="entries.length === 0" role="alert" style="opacity: 50%;">
-            Loading entries...
+        <div class="alert text-center" v-if="entries.length === 0" role="alert">
+            <p v-cloak
+               class="alert alert-info text-center"
+               role="alert"
+               style="clear: both; max-width: 20em; margin: auto;">
+                Loading entries...
+            </p>
             <noscript>
-                <div style="margin-top: 1em;">
+                <div style="margin-top: 2em; opacity: 50%;">
                     This field guide (or lexicon, glossary, dictionary, or encyclopedia)
                     includes definitions for beginners of the following terms and more:
                     <ul style="margin-top: 1em; list-style: none">
@@ -149,7 +159,9 @@
             </noscript>
         </div>
 
-        <div v-if="selectedTerm" class="alert text-center"
+        <div v-if="selectedTerm"
+             v-cloak
+             class="alert text-center"
              :class="selectedEntry ? 'alert-info' : 'alert-warning'"
              role="alert">
             <span v-if="selectedEntry">
@@ -168,6 +180,7 @@
         </div>
 
         <div v-if="hasSearchTerms"
+             v-cloak
              class="alert text-center"
              :class="searchedEntries.length !== 0 ? 'alert-info' : 'alert-warning'"
              role="alert">
