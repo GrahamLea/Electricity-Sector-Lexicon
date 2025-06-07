@@ -277,14 +277,14 @@
                                 </template>
                             </p>
                         </div>
-                        <section v-if="entry.links" class="links">
-                            <span v-for="link in entry.links" class="link">
+                        <ul v-if="entry.links" class="links">
+                            <li v-for="link in entry.links" class="link" :class="link.isVideo ? 'video' : ''">
                                 <a :href="link.href" :title="linkTitle(link)" target="_blank">
-                                    {{link.source}}
+                                    {{link.title}}
                                 </a>
-                                <span v-if="link.isVideo" class="video-marker">📺</span>
-                            </span>
-                        </section>
+                                <span class="link-source">({{link.source}})</span>
+                            </li>
+                        </ul>
                         <p v-if="entry.isStub == true" class="entryStub">
                             This entry is a stub that would benefit from being expanded.<br/>
                             If you'd like to help by contributing, please visit the

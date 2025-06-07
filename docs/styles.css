@@ -159,19 +159,24 @@
 
 .links {
     font-size: smaller;
-}
+    list-style: none;
+    margin-top: 2em;
+    margin-bottom: 0;
+    padding-left: 0;
 
-.links .link {
-    padding: 0 0.5em;
-    border-right: 1px solid #666;
-}
+    .link::before {
+        content: "🌐 ";
+        margin-right: 0.5em;
+    }
 
-.links .link .video-marker {
-    margin-left: 0.3em;
-}
+    .link.video::before {
+        content: "📺 ";
+    }
 
-.links .link:last-child {
-    border-right: none;
+    .link-source {
+        opacity: 60%;
+        margin-left: 0.6em;
+    }
 }
 
 .link .bi-patch-question-fill {
