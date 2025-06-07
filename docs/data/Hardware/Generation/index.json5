@@ -1,7 +1,0 @@
-{
-  category: "Generation",
-  imports: [
-    "Hydroelectricity",
-    "Solar_Photovoltaics",
-  ],
-}

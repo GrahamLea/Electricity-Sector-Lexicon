@@ -1,8 +1,0 @@
-{
-  term: "Export Limiting",
-  definition: {
-    summary: "Limiting the [power] that a property can export to the [distribution network] from its [embedded generation].",
-    more: "Export limits may be fixed or use [dynamic exports].          In Australia, many [DNSP]s limit residential properties to a fixed maximum export of 5 or 10 [kilowatts].",
-  },
-  isStub: true,
-}

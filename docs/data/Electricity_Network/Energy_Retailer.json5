@@ -1,9 +1,0 @@
-{
-  term: "Energy Retailer",
-  usedVeryFrequently: true,
-  definition: {
-    summary: "Organisation in an electricity market that has a commercial relationship with consumers.          Typically responsible for retail [tariff]-setting, metering, and billing.",
-    more: "",
-  },
-  isStub: true,
-}

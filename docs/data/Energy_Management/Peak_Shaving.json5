@@ -1,8 +1,0 @@
-{
-  term: "Peak Shaving",
-  definition: {
-    summary: "Energy cost optimisation that aims to lower the peak demand [power] used by an energy consumer, in order          to minimise costs associated with peak demand.",
-    more: "",
-  },
-  isStub: true,
-}

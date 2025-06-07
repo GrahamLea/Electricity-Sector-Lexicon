@@ -1,8 +1,0 @@
-{
-  term: "Reactive Power",
-  definition: {
-    summary: "Electric [power] which is generated but, due to being temporarily stored due to inductance or capacitance         in [load]s, is not able to be used to do useful work, and instead dissipates in line resistance.",
-    more: "",
-  },
-  isStub: true,
-}

@@ -1,7 +1,0 @@
-{
-  category: "Energy Transition",
-  region: "Australia",
-  imports: [
-    "Integrated_System_Plan",
-  ],
-}

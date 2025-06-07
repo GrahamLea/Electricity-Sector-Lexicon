@@ -1,9 +1,0 @@
-{
-  term: "Transmission Network",
-  usedVeryFrequently: true,
-  definition: {
-    summary: "Electrical network connecting large energy generators to  [distribution network]s, often by transmitting high          and very high [voltage] [power] over long distances.",
-    more: "",
-  },
-  isStub: true,
-}

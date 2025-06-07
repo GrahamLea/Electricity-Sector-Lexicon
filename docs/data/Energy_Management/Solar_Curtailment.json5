@@ -1,8 +1,0 @@
-{
-  term: "Solar Curtailment",
-  definition: {
-    summary: "Limiting or halting the [power] production of a [solar PV] system.",
-    more: "May be instigated by the asset owner, manually or automatically, in order to avoid paying a negative          [feed-in tariff].          May also be activated to protect the stability of the [distribution network] from an oversupply of          [embedded generation], which would typically be instigated by a [Distribution System Operator] automatically          curtailing residential solar systems. Ideally, this is achieved using [dynamic exports].",
-  },
-  isStub: true,
-}

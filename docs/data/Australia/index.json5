@@ -1,8 +1,0 @@
-{
-  category: "Australia",
-  region: "Australia",
-  imports: [
-    "Organisations/",
-    "Energy_Transition/",
-  ],
-}

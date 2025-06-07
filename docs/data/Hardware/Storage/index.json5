@@ -1,7 +1,0 @@
-{
-  category: "Storage",
-  imports: [
-    "Battery_Energy_Storage_System",
-    "Pumped_Hydro",
-  ],
-}

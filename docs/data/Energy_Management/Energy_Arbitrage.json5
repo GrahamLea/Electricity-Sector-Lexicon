@@ -1,8 +1,0 @@
-{
-  term: "Energy Arbitrage",
-  definition: {
-    summary: "Purchasing energy when it's relatively cheap, storing it, and selling it when it's worth more.",
-    more: "",
-  },
-  isStub: true,
-}

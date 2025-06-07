@@ -206,10 +206,10 @@
                         <section class="card-title">
                             <h2 class="term">
                                 {{entry.term}}
-                                <span v-if="entry.abbreviations" class="main-abbreviation">{{entry.abbreviations[0]}}</span>
+                                <span v-if="entry.abbreviations?.length" class="main-abbreviation">{{entry.abbreviations[0]}}</span>
                                 <!-- TODO: Float a star on the right if it's frequently used? -->
                             </h2>
-                            <p v-if="entry.synonyms || (entry.abbreviations && entry.abbreviations.length > 1)" class="also-known-as">
+                            <p v-if="entry.synonyms?.length || (entry.abbreviations?.length > 1)" class="also-known-as">
                                 Also known as:
                                 <span v-if="entry.abbreviations" v-for="a in entry.abbreviations.slice(1)" class="abbreviation">{{a}}</span>
                                 <span v-for="syn in entry.synonyms" class="synonym">{{syn}}</span>
@@ -323,6 +323,9 @@
         integrity="sha512-44jdhc+R2TFfzBflS3/dGNEABiNUxBkkrqwO7GWTvGsj3HkQNr3GESvI9PUvAxmqxSnTosR0Ij9y3+o+6J1hig=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
+        integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
 
 <script src="js/app.js" type="module"></script>
 

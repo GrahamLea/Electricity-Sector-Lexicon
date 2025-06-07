@@ -1,9 +1,0 @@
-{
-  term: "Distribution Network",
-  usedVeryFrequently: true,
-  definition: {
-    summary: "Electrical network connecting a high [voltage] [transmission network] to energy consumers by stepping down to          medium and low voltage, and extending power infrastructure into many properties. Operated by a [DSO].",
-    more: "",
-  },
-  isStub: true,
-}

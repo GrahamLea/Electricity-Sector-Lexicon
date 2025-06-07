@@ -1,8 +1,0 @@
-{
-  category: "Technology",
-  imports: [
-    "Distributed_Energy_Resources_Management_System",
-    "Energy_Management_System",
-    "Home_Energy_Management_System",
-  ],
-}

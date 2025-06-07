@@ -9,7 +9,7 @@ const createApp = await import(
         : "https://unpkg.com/vue@3/dist/vue.esm-browser.js")
     .then(module => { return module.createApp })
 
-const DATA_ROOT = "data/index.json5"
+const DATA_ROOT = "data/index.md"
 
 const searchLog = (...args) => {}
 // const searchLog = console.log
