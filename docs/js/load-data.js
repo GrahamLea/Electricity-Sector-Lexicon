@@ -95,7 +95,12 @@ async function loadImports(filename, imports, addCategory, addEntry, context, lo
         const childLogger = logger.createDeeperInstance()
         const childContext = deepCopy(context)
         childContext.categoryHierarchy += (childContext.categoryHierarchy ? "." : "") + `${n}`.padStart(2, "0")
-        importPromises.push(loadData(importFile, addCategory, addEntry, childContext, childLogger))
+        // Import indexes async and entries sync, to maintain entry order in categories
+        if (importFile.endsWith("/index.md")) {
+            importPromises.push(loadData(importFile, addCategory, addEntry, childContext, childLogger))
+        } else {
+            await loadData(importFile, addCategory, addEntry, childContext, childLogger)
+        }
     }
     await Promise.all(importPromises).catch(reason => {
         console.log("Error while loading data: ", reason)
