@@ -186,8 +186,9 @@
     padding-right: 0.1em;
 }
 
-.entryStub {
+.stubNote {
     font-style: italic;
+    font-size: smaller;
     opacity: 50%;
     margin-top: 1em;
     margin-bottom: 0;
