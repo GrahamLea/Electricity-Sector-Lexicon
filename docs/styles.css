@@ -164,6 +164,13 @@
     margin-bottom: 0;
     padding-left: 0;
 
+    a {
+        text-decoration: none;
+        &:active, &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .link::before {
         content: "🌐 ";
         margin-right: 0.5em;
