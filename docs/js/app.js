@@ -316,8 +316,10 @@ function start() {
             window.addEventListener("keydown", this.onKeyDown);
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
-            bootstrap.Toast.getOrCreateInstance(this.$refs.termsLoadedToast).show()
+            let termsCountToast = bootstrap.Toast.getOrCreateInstance(this.$refs.termsLoadedToast, {autohide: false});
+            termsCountToast.show()
             await loadData(DATA_ROOT, this.addCategory, this.addEntry)
+            setTimeout(() => termsCountToast.hide(), 4000)
             this.buildSearchTrie()
             this.updateSelectedTermFromHash();
             this.updateSearchTermFromQuery();
