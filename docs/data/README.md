@@ -126,6 +126,8 @@ Within `## Summary` and `## More` secctions, links to other terms in the Field G
 target term in square brackets, e.g. `[Alternating Current]`.
 The path to the Entry within the `data/` directory is NOT required.
 The case (upper/lower case) of the text does not matter.
+Synonyms and abbreviations for terms can also be used in links, though they are not recommended except where they  
+result in a clearer or easier to read description than canonical term.
 Both terms and links are converted into a slug format (e.g. `alternating-current`).
 
 

@@ -205,6 +205,8 @@
 
             <template v-for="(entry, index) in entriesSorted" :key="entry.id">
 
+                <div :id="entry.id" class="termScrollTarget"></div>
+
                 <template v-if="!hasSearchTerms">
                     <header v-if="index === 0 || entriesSorted[index - 1].category !== entry.category"
                             class="category-header"

@@ -111,6 +111,13 @@
 /*    background: blue;*/
 /*}*/
 
+.termScrollTarget {
+    height: 0;
+    opacity: 0;
+    position: relative;
+    top: -8em;  /* So cards appear below the header */
+}
+
 .card h3 {
     font-size: 100%;
     opacity: 60%;

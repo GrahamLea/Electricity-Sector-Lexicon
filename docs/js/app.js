@@ -238,15 +238,54 @@ function start() {
                 this.pushNewUrlStateSoon()
             },
 
+            setHighestScrollTargetAsHash() {
+                // This is the magic that allows browsing back to land on the same entry as was being viewed.
+                if (!this.selectedEntry) {
+                    // This finds the two scroll targets on each side of the boundary of the top of the viewport.
+                    // It will change the hash when the scroll position crosses halfway between the start of one
+                    // and the start of the next.
+                    const elementsWithBounds = _(document.querySelectorAll('.termScrollTarget'))
+                        .map(e => ({
+                            element: e,
+                            bounds: e.getBoundingClientRect()
+                        }));
+                    const lastInvisibleElement = elementsWithBounds
+                        .findLast(eb => eb.bounds.top < -10)
+
+                    const firstVisibleElement = elementsWithBounds
+                        .find(eb => eb.bounds.top >= -10)
+
+                    if (!lastInvisibleElement || !firstVisibleElement) return
+
+                    const currentViewedElement =
+                        firstVisibleElement.bounds.top > window.innerHeight ?
+                            lastInvisibleElement.element
+                            : Math.abs(firstVisibleElement.bounds.top) < Math.abs(lastInvisibleElement.bounds.top)
+                                ? firstVisibleElement.element
+                                : lastInvisibleElement.element
+
+                    if (window.location.hash !== `#${currentViewedElement.id}`) {
+                        history.replaceState(null, '', `#${currentViewedElement.id}`)
+                    }
+                }
+            },
+
             pushNewUrlStateSoon() {
-                const selectedTerm1 = this.selectedTerm
-                const searchText1 = this.searchText
+                const selectedTerm = this.selectedTerm
+                const searchText = this.searchText
                 setTimeout(() => {
-                    const hasntChangedForASecond = this.selectedTerm === selectedTerm1 && this.searchText === searchText1;
-                    if (hasntChangedForASecond) {
+                    const hasntChangedForABit = this.selectedTerm === selectedTerm && this.searchText === searchText;
+                    if (hasntChangedForABit) {
                         const query = this.searchText === "" ? ""
                             : ("?" + new URLSearchParams([["q", this.searchText]]).toString())
-                        const hash = this.selectedTerm ? "#" + this.selectedTerm : ""
+                        // Don't keep a directLink in the hash if there's a query
+                        const hash = (query !== "" && (this.selectedTerm || window.location.hash?.startsWith("#@")))
+                            ? ""
+                            : this.selectedTerm
+                                ? `#@${this.selectedTerm}`
+                                : window.location.hash?.startsWith("#@")
+                                    ? ""
+                                    : window.location.hash
                         if (query !== location.search || hash !== location.hash) {
                             history.pushState('', document.title, window.location.pathname + query + hash)
                         }
@@ -263,12 +302,26 @@ function start() {
                 const hash = window.location.hash;
                 if (hash && hash !== "" && hash !== "#") {
                     let term = hash.startsWith("#") ? hash.slice(1) : hash
+                    const directLink = term.startsWith("@")
+                    term = directLink ? term.slice(1) : term
                     term = term.replaceAll("%20", " ")
-                    this.selectedTerm = term
-                    if (!this.selectedEntry && this.entriesById.has(this.termId(term))) {
-                        this.selectedTerm = this.termId(term)
-                        const hash = this.selectedTerm ? "#" + this.selectedTerm : ""
-                        history.pushState('', document.title, window.location.pathname + hash)
+                    const id = this.termId(term)
+                    const termId = (this.entriesById.has(id) ? id : undefined)
+                        || this.synonymsToTermIdsMap.get(id)
+                        || this.abbreviationsToTermIdsMap.get(id)
+                    if (directLink) {
+                        this.selectedTerm = term
+                        // !this.selectedEntry because entry is set by link click except via direct URL change
+                        if (!this.selectedEntry && termId) {
+                            this.selectedTerm = termId
+                        }
+                    } else {
+                        // Because content loads dynamically, we have to manually scroll to regular hashes... twice!
+                        this.selectedTerm = undefined
+                        document.getElementById(id)?.scrollIntoView()
+                        setTimeout(() => {
+                            document.getElementById(id)?.scrollIntoView()
+                        }, 500)
                     }
                 } else {
                     this.selectedTerm = undefined
@@ -316,19 +369,23 @@ function start() {
             window.addEventListener("keydown", this.onKeyDown);
             window.addEventListener("popstate", this.onUrlChange);
             window.addEventListener("hashchange", this.onUrlChange);
+            window.addEventListener("scroll", this.setHighestScrollTargetAsHash);
             let termsCountToast = bootstrap.Toast.getOrCreateInstance(this.$refs.termsLoadedToast, {autohide: false});
             termsCountToast.show()
             await loadData(DATA_ROOT, this.addCategory, this.addEntry)
-            setTimeout(() => termsCountToast.hide(), 4000)
+            setTimeout(() => termsCountToast.hide(), 3000)
             this.buildSearchTrie()
-            this.updateSelectedTermFromHash();
             this.updateSearchTermFromQuery();
+            this.$nextTick(() => {
+                this.updateSelectedTermFromHash()
+            })
         },
 
         beforeUnmount() {
             window.removeEventListener("keydown", this.onKeyDown);
             window.removeEventListener("popstate", this.onUrlChange);
             window.removeEventListener("hashchange", this.onUrlChange);
+            window.removeEventListener("scroll", this.setHighestScrollTargetAsHash);
         }
     }).mount('#app')
 }
