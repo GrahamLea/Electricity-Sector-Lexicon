@@ -220,8 +220,8 @@ function parseIndex(lines, filename) {
 }
 
 function parseLinks(lines, filename) {
-    const imports = parseTextList(lines, "## Links", filename)
-    return imports.map(s => {
+    const links = parseTextList(lines, "## Links", filename)
+    return links.map(s => {
         const match = s.match(MARKDOWN_ENTRY_LINK_REGEX)
         if (!match) {
             throw new Error(`Error in '${filename}': Index entry is not a properly formatted link: ${s}`)
@@ -232,9 +232,9 @@ function parseLinks(lines, filename) {
             throw new Error(`Error in '${filename}': Link has invalid hashtags: ${invalidHashtags}`)
         }
         return {
-            title: match[1],
-            source: match[2],
-            href: match[3],
+            title: match[1].trim(),
+            source: match[2].trim(),
+            href: match[3].trim(),
             isVideo: hashtags.includes("#video")
         }
     })
