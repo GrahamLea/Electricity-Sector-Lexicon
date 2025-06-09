@@ -21,11 +21,10 @@ for relevant content easier.
 
 ## Project Organisation
 
-The data that forms the guide is stored in the 
-[JSON5](https://json5.org/) format under [docs/data/](docs/data).
+The data that forms the guide is stored under [docs/data/](docs/data)
+using a small subset of Markdown described in [docs/data/README.md](docs/data/README.md).
 
-The guide's GUI is in the [docs/](docs) folder and is a Vue 3 app 
-designed around the JSON data.
+The guide's GUI is in the [docs/](docs) folder and is a Vue 3 app designed around the Markdown data.
 
 
 ## Contribute to the Project

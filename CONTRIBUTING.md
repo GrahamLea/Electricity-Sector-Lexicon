@@ -101,7 +101,7 @@ There are currently four dimensions of organisation:
 * Regions: Labels highlighting a term chiefly relevant only to the specified geography
 * 'Used Very Frequently': A binary flag that suggests a term is relatively important
 * Order: Categories and terms are currently displayed in the order they are included 
-  hierarchically via `index.json5`. 
+  hierarchically via `index.md`. 
 
 
 ### Links
@@ -116,3 +116,8 @@ For consistency, we prioritise linking to the following excellent sources where 
 * [The Engineering Mindset](https://www.youtube.com/c/Theengineeringmindset)
 * [Khan Academy](https://www.khanacademy.org)
 * Official websites for referenced organisations
+
+
+### Format
+
+The format of the data files is described in [docs/data/README.md](docs/data/README.md)
