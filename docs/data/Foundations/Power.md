@@ -13,7 +13,7 @@
 ## Summary
 
 A quantitative measure of the rate at which electrical [energy] is transferred.
-Measured in watts ('W'), which is equivalent to one joule of energy per second.
+Measured in watts ('W'), which is equivalent to one [joule] of energy per second.
 Practical applications will often need to use kW or higher (MW or GW).
 
 

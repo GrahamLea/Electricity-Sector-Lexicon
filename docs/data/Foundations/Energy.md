@@ -14,7 +14,7 @@
 
 A quantitative measure of the ability for something to perform "work", with work being the
 transfer of energy from one object to another, or from one form of energy to another.
-Measured in joules ('J') or, more commonly in relation to electricity, [kilowatt-hour]s (kWh).
+Measured in [joule]s ('J') or, more commonly in relation to electricity, [kilowatt-hour]s (kWh).
 Electrical energy is one form, being the energy due to electric fields, or stored in electric fields.
 Electrical energy may exist as a static build up of charged particles, or a dynamic movement of charged
 particles (i.e. [current]).

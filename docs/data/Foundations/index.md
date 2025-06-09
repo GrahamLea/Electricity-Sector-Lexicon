@@ -19,4 +19,5 @@ Foundations
 - [Kilowatt-Hour](Kilowatt-Hour.md)
 - [Volts](Volts.md)
 - [Amperes](Amperes.md)
+- [Joule](Joule.md)
 - [Reactive Power](Reactive_Power.md)

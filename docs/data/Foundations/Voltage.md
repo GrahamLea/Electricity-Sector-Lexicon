@@ -24,7 +24,7 @@ Conventionally represented by the symbol <i style='font-family: serif;'>V</i> or
 ## More
 
 
-Voltage is defined as [energy] (in joules) per unit charge (coulomb).
+Voltage is defined as [energy] (in [joule]s) per unit charge (coulomb).
 It is the amount of potential work that could be performed by each charged particle.
 Note this means the energy in a circuit is not determined solely by the [current] (the amount of charged
 particles moving), but also by the voltage applied.
